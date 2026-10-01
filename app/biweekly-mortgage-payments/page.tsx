@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Does biweekly lower my required payment?", "answer": "No — the contract payment stays the same. You simply finish sooner and pay less interest. Only a recast or refinance lowers the required amount."}, {"question": "What about two months with three debits?", "answer": "Twice a year biweekly schedules debit three halves in one month. Budget for those months or use the 1/12-monthly method for even cash flow."}, {"question": "Can I do this on an ARM?", "answer": "Yes — extra principal helps any amortizing loan. On ARMs it also shrinks the balance subject to future resets."}, {"question": "Should I refinance instead?", "answer": "Different goals: biweekly cuts term at your current rate for free; refinancing cuts rate (with costs). They combine well when rates have fallen."}];
 
 export const metadata: Metadata = {
   title: "Biweekly Mortgage Payments: One Extra Payment a Year",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Paying half your mortgage every two weeks instead of the full amount monthly yields 26 half-payments — 13 full payments a year instead of 12. That single extra payment, applied to principal, can shave roughly four to six years off a 30-year loan and save tens of thousands in interest. The strategy is simple but the setup matters: servicer programs, third-party plans, and DIY methods differ in cost, crediting, and reliability. This guide shows the math and the safest setup.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Why 26 halves beat 12 wholes</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -45,17 +52,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Prioritize correctly: biweekly acceleration suits borrowers with emergency funds, no high-rate debt, and steady retirement saving. If cards at 22 percent revolve or the emergency fund is thin, redirect the extra payment there first — the return is higher and the risk lower. Also confirm no prepayment penalty (rare on mainstream US mortgages) and that extra funds reduce principal rather than prepaying future interest.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does biweekly lower my required payment?</p><p className="mt-2 opacity-80">No — the contract payment stays the same. You simply finish sooner and pay less interest. Only a recast or refinance lowers the required amount.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What about two months with three debits?</p><p className="mt-2 opacity-80">Twice a year biweekly schedules debit three halves in one month. Budget for those months or use the 1/12-monthly method for even cash flow.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I do this on an ARM?</p><p className="mt-2 opacity-80">Yes — extra principal helps any amortizing loan. On ARMs it also shrinks the balance subject to future resets.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Should I refinance instead?</p><p className="mt-2 opacity-80">Different goals: biweekly cuts term at your current rate for free; refinancing cuts rate (with costs). They combine well when rates have fallen.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does biweekly lower my required payment?</summary><p className="mt-2 opacity-80">No — the contract payment stays the same. You simply finish sooner and pay less interest. Only a recast or refinance lowers the required amount.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What about two months with three debits?</summary><p className="mt-2 opacity-80">Twice a year biweekly schedules debit three halves in one month. Budget for those months or use the 1/12-monthly method for even cash flow.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I do this on an ARM?</summary><p className="mt-2 opacity-80">Yes — extra principal helps any amortizing loan. On ARMs it also shrinks the balance subject to future resets.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I refinance instead?</summary><p className="mt-2 opacity-80">Different goals: biweekly cuts term at your current rate for free; refinancing cuts rate (with costs). They combine well when rates have fallen.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Savings figures are estimates. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Biweekly Mortgage Payments: One Extra Payment a Year" description="How biweekly mortgage payments work: 26 half-payments, interest savings, servicer vs self-managed methods, and a $350,000 example." slug="biweekly-mortgage-payments" faqs={guideFaqs} />
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "How long before I can cash out?", "answer": "Often six months of ownership/seasoning for conventional, longer for some programs. Lenders verify value growth is real, not inflated."}, {"question": "Is cash-out interest deductible?", "answer": "Only the portion used to buy, build, or substantially improve the securing home (and if you itemize). Cash used otherwise is generally not deductible."}, {"question": "Will cash-out affect my rate?", "answer": "Yes — expect a premium over no-cash refinances, plus possible loan-level adjustments for LTV and credit."}, {"question": "What if values fall after?", "answer": "You owe the larger balance on a smaller cushion, limiting future refinance or sale options. Borrow well under the max to keep margin."}];
 
 export const metadata: Metadata = {
   title: "Cash-Out Refinance Guide: Costs, Limits & Alternatives",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A cash-out refinance replaces your mortgage with a larger one and hands you the difference in cash. It is one withdrawal, one payment, at mortgage rates — often cheaper than cards or personal loans. It also raises your balance, usually raises your rate above no-cash pricing, restarts the payoff clock, and puts your home behind the new debt. Sensible for value-adding renovations or consolidating high-rate debt you will not rebuild; risky for lifestyle spending or covering deficits. This guide shows the limits, true costs, and alternatives.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How much cash can you take?</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -43,17 +50,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Strong uses: structural renovations with contractor bids and resale logic, consolidating double-digit debt you will close at the source, or funding education with a clear earnings return. Weak uses: vacations, vehicles that depreciate, speculative investing, or bridging income gaps without a fix — each converts secured equity into consumption. Guardrails: keep at least 20 percent equity after, keep the new payment inside 28/36 guidelines, hold six months of the higher payment in reserve, and fix the behavior behind any consolidation (autopay the new loan, freeze paid cards). Get contractor timelines in writing before borrowing for remodels so draws and payments align with work. Test scenarios on <a className="underline" href="https://loanpaylogic.com/refinance-calculator/">loanpaylogic.com refinance tools</a>.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How long before I can cash out?</p><p className="mt-2 opacity-80">Often six months of ownership/seasoning for conventional, longer for some programs. Lenders verify value growth is real, not inflated.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Is cash-out interest deductible?</p><p className="mt-2 opacity-80">Only the portion used to buy, build, or substantially improve the securing home (and if you itemize). Cash used otherwise is generally not deductible.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Will cash-out affect my rate?</p><p className="mt-2 opacity-80">Yes — expect a premium over no-cash refinances, plus possible loan-level adjustments for LTV and credit.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What if values fall after?</p><p className="mt-2 opacity-80">You owe the larger balance on a smaller cushion, limiting future refinance or sale options. Borrow well under the max to keep margin.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How long before I can cash out?</summary><p className="mt-2 opacity-80">Often six months of ownership/seasoning for conventional, longer for some programs. Lenders verify value growth is real, not inflated.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is cash-out interest deductible?</summary><p className="mt-2 opacity-80">Only the portion used to buy, build, or substantially improve the securing home (and if you itemize). Cash used otherwise is generally not deductible.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will cash-out affect my rate?</summary><p className="mt-2 opacity-80">Yes — expect a premium over no-cash refinances, plus possible loan-level adjustments for LTV and credit.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if values fall after?</summary><p className="mt-2 opacity-80">You owe the larger balance on a smaller cushion, limiting future refinance or sale options. Borrow well under the max to keep margin.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Limits and pricing vary by program and market. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Cash-Out Refinance Guide: Costs, Limits & Alternatives" description="Cash-out refinance explained: how equity math, rates, and taxes work, when it makes sense, and a $420,000 example with alternatives table." slug="cash-out-refinance-guide" faqs={guideFaqs} />
     </div>
   );
 }

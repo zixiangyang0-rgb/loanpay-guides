@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Do points lower APR?", "answer": "They lower the rate and payment, but the APR amortizes the points cost — so APR falls less than the rate. Compare APRs plus break-even together."}, {"question": "Are points refundable if I sell early?", "answer": "No. Unrecovered points are sunk. That is why horizon honesty matters most."}, {"question": "What is a temporary buydown?", "answer": "A 2-1 or 1-0 buydown cuts the rate for year one (and two) then steps to the note rate — cheaper than permanent points for early relief, often seller-funded."}, {"question": "Can I roll points into the loan?", "answer": "Sometimes, within LTV limits — but financing points blunts the benefit since you pay interest on them. Cash is cleaner if available."}];
 
 export const metadata: Metadata = {
   title: "Mortgage Points Guide: Discount Points & Break-Even Math",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Discount points are prepaid interest: pay 1 percent of the loan at closing (one point) to lower the rate, typically by about 0.2 to 0.25 point per point — though the exchange varies daily. Lender credits do the reverse: accept a higher rate for cash toward closing. Neither is universally better; the winner depends on how long you keep the loan. This guide shows the break-even formula, tax notes, and a worked $400,000 comparison so you buy points only when time makes them pay.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How points and credits price</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -43,17 +50,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Buy points when you will keep the loan well past break-even, have cash beyond emergency and down-payment needs, and cannot earn clearly more investing the points money after tax and risk. Prefer credits or par when cash is tight, you may move or refinance within five years, or rates are high and likely to fall — paying to lock a high rate you will soon replace wastes money. Negotiate both sides: builders and sellers can fund buydowns via price or concessions, and lenders sometimes discount points on slow days. Get same-day Loan Estimates showing par, points, and credit options side by side; point pricing moves with bond markets intraday.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do points lower APR?</p><p className="mt-2 opacity-80">They lower the rate and payment, but the APR amortizes the points cost — so APR falls less than the rate. Compare APRs plus break-even together.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Are points refundable if I sell early?</p><p className="mt-2 opacity-80">No. Unrecovered points are sunk. That is why horizon honesty matters most.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What is a temporary buydown?</p><p className="mt-2 opacity-80">A 2-1 or 1-0 buydown cuts the rate for year one (and two) then steps to the note rate — cheaper than permanent points for early relief, often seller-funded.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I roll points into the loan?</p><p className="mt-2 opacity-80">Sometimes, within LTV limits — but financing points blunts the benefit since you pay interest on them. Cash is cleaner if available.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do points lower APR?</summary><p className="mt-2 opacity-80">They lower the rate and payment, but the APR amortizes the points cost — so APR falls less than the rate. Compare APRs plus break-even together.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are points refundable if I sell early?</summary><p className="mt-2 opacity-80">No. Unrecovered points are sunk. That is why horizon honesty matters most.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What is a temporary buydown?</summary><p className="mt-2 opacity-80">A 2-1 or 1-0 buydown cuts the rate for year one (and two) then steps to the note rate — cheaper than permanent points for early relief, often seller-funded.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I roll points into the loan?</summary><p className="mt-2 opacity-80">Sometimes, within LTV limits — but financing points blunts the benefit since you pay interest on them. Cash is cleaner if available.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Point values move daily; verify current pricing in writing. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Mortgage Points Guide: Discount Points & Break-Even Math" description="Should you buy mortgage points? How discount points, lender credits, and break-even timing work, with a $400,000 two-point example." slug="mortgage-points-guide" faqs={guideFaqs} />
     </div>
   );
 }

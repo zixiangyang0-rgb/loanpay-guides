@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Which score do lenders use?", "answer": "Usually the middle of your three mortgage FICO scores; joint applications generally use the lower middle score for pricing."}, {"question": "Will checking my own score hurt?", "answer": "No — self-checks are soft inquiries. Lender hard pulls for rate-shopping inside two weeks generally count as one."}, {"question": "Should I pay collections before applying?", "answer": "Ask your loan officer first. Some programs require resolution; indiscriminate payoff can reset dates or drain reserves. Strategy matters."}, {"question": "Can I get a mortgage after bankruptcy?", "answer": "Often yes after seasoning — roughly 2 years for FHA/VA Chapter 7 and 4 for conventional, with re-established credit. Confirm current waiting periods."}];
 
 export const metadata: Metadata = {
   title: "Credit Score Mortgage Guide: Tiers, Rates & Fast Wins",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Mortgage lenders use your FICO scores — typically the middle of your three bureau mortgage scores — to approve you and price your rate. Crossing from 680 to 740 can save roughly 0.5 to 1 point in rate on conventional loans, worth tens of thousands over 30 years. Government programs forgive lower scores but still reward higher ones. This guide explains the tiers, what actually moves mortgage scores fast, and how to time applications around improvements.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Score tiers and what they unlock</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Estimate payment effects of score-driven rate changes with the <a className="underline" href="https://loanpaylogic.com/mortgage-calculator/">loanpaylogic.com mortgage calculator</a>. As of autumn 2026, elevated rates made tiers sting more: every eighth of a point cost more monthly than in the 3-percent era, raising the payoff to waiting one season to cross 740 if your timeline allows.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Which score do lenders use?</p><p className="mt-2 opacity-80">Usually the middle of your three mortgage FICO scores; joint applications generally use the lower middle score for pricing.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Will checking my own score hurt?</p><p className="mt-2 opacity-80">No — self-checks are soft inquiries. Lender hard pulls for rate-shopping inside two weeks generally count as one.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Should I pay collections before applying?</p><p className="mt-2 opacity-80">Ask your loan officer first. Some programs require resolution; indiscriminate payoff can reset dates or drain reserves. Strategy matters.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I get a mortgage after bankruptcy?</p><p className="mt-2 opacity-80">Often yes after seasoning — roughly 2 years for FHA/VA Chapter 7 and 4 for conventional, with re-established credit. Confirm current waiting periods.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Which score do lenders use?</summary><p className="mt-2 opacity-80">Usually the middle of your three mortgage FICO scores; joint applications generally use the lower middle score for pricing.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will checking my own score hurt?</summary><p className="mt-2 opacity-80">No — self-checks are soft inquiries. Lender hard pulls for rate-shopping inside two weeks generally count as one.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I pay collections before applying?</summary><p className="mt-2 opacity-80">Ask your loan officer first. Some programs require resolution; indiscriminate payoff can reset dates or drain reserves. Strategy matters.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get a mortgage after bankruptcy?</summary><p className="mt-2 opacity-80">Often yes after seasoning — roughly 2 years for FHA/VA Chapter 7 and 4 for conventional, with re-established credit. Confirm current waiting periods.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Scoring models and lender overlays vary. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Credit Score Mortgage Guide: Tiers, Rates & Fast Wins" description="How credit scores shape mortgage approval and pricing in 2026: score tiers, loan-level adjustments, rapid improvement steps, and rate-gap math." slug="credit-score-mortgage-guide" faqs={guideFaqs} />
     </div>
   );
 }

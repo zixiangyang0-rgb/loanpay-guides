@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "How do I get released as cosigner?", "answer": "Meet the lender&apos;s on-time streak plus a solo re-qualification, or have the borrower refinance. Get release confirmations in writing and verify bureaus update."}, {"question": "Can I stop being a cosigner anytime?", "answer": "Generally no — consent is locked until contractual conditions or payoff. Never cosign assuming early exit."}, {"question": "Does cosigning affect my mortgage?", "answer": "Yes. The payment counts in your DTI unless the borrower documents 12 months of solo payments from their own funds (rules vary by program)."}, {"question": "What if the borrower dies or defaults?", "answer": "The cosigner owes the balance; some student lenders offer death discharge, many auto and personal lenders do not. Check the clause."}];
 
 export const metadata: Metadata = {
   title: "Cosigner Loan Guide: Risks, Rights & Safer Alternatives",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A cosigner guarantees the loan: if the primary borrower misses payments, the lender collects from the cosigner — including late marks on both credit reports, collection action, and possible lawsuits. Cosigning helps thin-credit borrowers qualify or earn lower rates on student, auto, and personal loans, but it binds the helper&apos;s borrowing power and relationships until release or payoff. This guide lays out the legal reality, the narrow cases where cosigning works, and safer alternatives for both sides.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">What cosigning legally means</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -46,17 +53,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Borrowers can build with secured cards, credit-builder loans, and six months of documented on-time rent and utilities; buy less car; or seek co-borrower structures where both own the asset. Helpers can gift a down payment (with proper gift letters) instead of guaranteeing debt, lend directly with a written promissory note and collateral, or help with budgeting and income rather than signatures. Parents of students should compare cosigned private loans against federal Direct loans that need no cosigner — often the safer base before any private supplement.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How do I get released as cosigner?</p><p className="mt-2 opacity-80">Meet the lender&apos;s on-time streak plus a solo re-qualification, or have the borrower refinance. Get release confirmations in writing and verify bureaus update.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I stop being a cosigner anytime?</p><p className="mt-2 opacity-80">Generally no — consent is locked until contractual conditions or payoff. Never cosign assuming early exit.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does cosigning affect my mortgage?</p><p className="mt-2 opacity-80">Yes. The payment counts in your DTI unless the borrower documents 12 months of solo payments from their own funds (rules vary by program).</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What if the borrower dies or defaults?</p><p className="mt-2 opacity-80">The cosigner owes the balance; some student lenders offer death discharge, many auto and personal lenders do not. Check the clause.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How do I get released as cosigner?</summary><p className="mt-2 opacity-80">Meet the lender&apos;s on-time streak plus a solo re-qualification, or have the borrower refinance. Get release confirmations in writing and verify bureaus update.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I stop being a cosigner anytime?</summary><p className="mt-2 opacity-80">Generally no — consent is locked until contractual conditions or payoff. Never cosign assuming early exit.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does cosigning affect my mortgage?</summary><p className="mt-2 opacity-80">Yes. The payment counts in your DTI unless the borrower documents 12 months of solo payments from their own funds (rules vary by program).</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if the borrower dies or defaults?</summary><p className="mt-2 opacity-80">The cosigner owes the balance; some student lenders offer death discharge, many auto and personal lenders do not. Check the clause.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Guaranty terms vary by lender and state. Read every clause and our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Cosigner Loan Guide: Risks, Rights & Safer Alternatives" description="What cosigning really means: equal liability, credit effects, release options, and alternatives for borrowers and parents considering a cosigner." slug="cosigner-loan-guide" faqs={guideFaqs} />
     </div>
   );
 }

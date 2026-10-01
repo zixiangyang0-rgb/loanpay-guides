@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "./components/AdSlot";
 
 export const metadata: Metadata = {
   title: "Practical Guides on Mortgages, Loans & Debt Strategy",
@@ -220,6 +221,8 @@ export default function HomePage() {
           .
         </p>
       </section>
+
+      <AdSlot format="display" slot="TODO-guides-home-display-1" label="Homepage display ad" />
 
       {groups.map((group) => (
         <section key={group.heading}>

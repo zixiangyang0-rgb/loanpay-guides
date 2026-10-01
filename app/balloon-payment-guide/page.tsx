@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can I refinance a balloon before maturity?", "answer": "Yes — most borrowers do, starting 6–12 months early. Do not wait until the final 90 days when leverage is weakest."}, {"question": "What happens if I cannot pay the balloon?", "answer": "Default, foreclosure risk, forced sale, or emergency refinance on poor terms. Contact the servicer early for options before maturity."}, {"question": "Are balloons ever a good idea?", "answer": "For investors with dated exits, bridge needs, or properties selling on schedule — and only with reserves and a backup plan."}, {"question": "How is a balloon different from an ARM?", "answer": "ARMs adjust the rate and continue payments; balloons demand the balance. ARMs have caps; balloons have cliffs."}];
 
 export const metadata: Metadata = {
   title: "Balloon Payment Guide: Low Payments, One Big Bill",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A balloon loan keeps payments low by amortizing like a long loan but demanding the remaining balance in one lump sum after a few years — for example, payments based on 30 years with everything due in year seven. Investors flipping or selling before the date can benefit; anyone without a certain exit faces refinance, sale, or default risk at the worst moment. This guide explains the mechanics, the conditional reset options some lenders offer, and how to underwrite the balloon date before signing.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How balloon structures work</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -42,17 +49,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Qualified-mortgage rules restrict many residential balloons; mainstream owner-occupied balloons are rarer than a decade ago, appearing more in portfolio, commercial, and investor products. Risks cluster: rate risk (refinance costs more), value risk (no equity to refinance), income risk (tighter standards later), and sale risk (illiquid market at maturity). Mitigations include a written reset option, a sinking fund saving toward the balloon monthly, a sale timeline ending a year before maturity, and a backup ARM or fixed quote secured early. For most homeowners, a 7/6 or 10/6 ARM delivers similar early savings without a cliff — the payment can adjust, but no lump sum comes due.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I refinance a balloon before maturity?</p><p className="mt-2 opacity-80">Yes — most borrowers do, starting 6–12 months early. Do not wait until the final 90 days when leverage is weakest.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What happens if I cannot pay the balloon?</p><p className="mt-2 opacity-80">Default, foreclosure risk, forced sale, or emergency refinance on poor terms. Contact the servicer early for options before maturity.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Are balloons ever a good idea?</p><p className="mt-2 opacity-80">For investors with dated exits, bridge needs, or properties selling on schedule — and only with reserves and a backup plan.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How is a balloon different from an ARM?</p><p className="mt-2 opacity-80">ARMs adjust the rate and continue payments; balloons demand the balance. ARMs have caps; balloons have cliffs.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance a balloon before maturity?</summary><p className="mt-2 opacity-80">Yes — most borrowers do, starting 6–12 months early. Do not wait until the final 90 days when leverage is weakest.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What happens if I cannot pay the balloon?</summary><p className="mt-2 opacity-80">Default, foreclosure risk, forced sale, or emergency refinance on poor terms. Contact the servicer early for options before maturity.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are balloons ever a good idea?</summary><p className="mt-2 opacity-80">For investors with dated exits, bridge needs, or properties selling on schedule — and only with reserves and a backup plan.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How is a balloon different from an ARM?</summary><p className="mt-2 opacity-80">ARMs adjust the rate and continue payments; balloons demand the balance. ARMs have caps; balloons have cliffs.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Balloon terms vary and QM rules limit availability. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Balloon Payment Guide: Low Payments, One Big Bill" description="Balloon mortgages and loans explained: how low early payments plus a lump-sum due date work, refinance risk, and a $300,000 example with alternatives." slug="balloon-payment-guide" faqs={guideFaqs} />
     </div>
   );
 }

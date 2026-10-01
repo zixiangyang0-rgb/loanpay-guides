@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Do utilities and groceries count?", "answer": "No — only reported debt payments count for DTI. Budget them separately; lenders assume you will, but the ratio itself ignores them."}, {"question": "Does a high DTI raise my rate?", "answer": "It can via loan-level price adjustments and program choice, and it caps your amount. Lower DTI plus higher scores earn the best pricing tiers."}, {"question": "What DTI should I target personally?", "answer": "Many planners suggest housing under 25–28% of take-home and all debts under 36%, with savings intact — tighter than lender maximums for good reason."}, {"question": "Can rental income help DTI?", "answer": "Yes, usually at ~75% of documented rent with history and leases, offsetting the rental property&apos;s payment. Rules vary by program."}];
 
 export const metadata: Metadata = {
   title: "Debt-to-Income Ratio Guide: Front-End, Back-End & Limits",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Debt-to-income (DTI) divides monthly debt payments by gross monthly income. Mortgage lenders use two versions: front-end (housing only) and back-end (all debts). Together with credit and reserves, DTI decides how much you can borrow and sometimes your rate. Unlike utilization or net worth, DTI ignores assets and living costs — it is a lender-risk gauge, not a full budget. Learn to compute both ratios, know each program&apos;s ceiling, and see exactly which debts to clear for the biggest approval lift.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How lenders compute DTI</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -43,17 +50,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Fast levers: pay small installment balances to zero (removes full minimums), avoid new credit and large purchases, keep cards open but low (protects scores while minimums stay small), and document all income including part-time history. Do not close old cards before applying — it can hurt scores without helping DTI. Do not shuffle debt into new payments; a consolidation loan with a lower payment helps DTI, but one with a longer term and similar payment merely trades interest. Self-employed borrowers should plan a year ahead: lenders average adjusted net income after write-offs, so aggressive deductions shrink qualifying income. Time applications after bonuses post and debts clear statements.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do utilities and groceries count?</p><p className="mt-2 opacity-80">No — only reported debt payments count for DTI. Budget them separately; lenders assume you will, but the ratio itself ignores them.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does a high DTI raise my rate?</p><p className="mt-2 opacity-80">It can via loan-level price adjustments and program choice, and it caps your amount. Lower DTI plus higher scores earn the best pricing tiers.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What DTI should I target personally?</p><p className="mt-2 opacity-80">Many planners suggest housing under 25–28% of take-home and all debts under 36%, with savings intact — tighter than lender maximums for good reason.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can rental income help DTI?</p><p className="mt-2 opacity-80">Yes, usually at ~75% of documented rent with history and leases, offsetting the rental property&apos;s payment. Rules vary by program.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do utilities and groceries count?</summary><p className="mt-2 opacity-80">No — only reported debt payments count for DTI. Budget them separately; lenders assume you will, but the ratio itself ignores them.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does a high DTI raise my rate?</summary><p className="mt-2 opacity-80">It can via loan-level price adjustments and program choice, and it caps your amount. Lower DTI plus higher scores earn the best pricing tiers.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What DTI should I target personally?</summary><p className="mt-2 opacity-80">Many planners suggest housing under 25–28% of take-home and all debts under 36%, with savings intact — tighter than lender maximums for good reason.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can rental income help DTI?</summary><p className="mt-2 opacity-80">Yes, usually at ~75% of documented rent with history and leases, offsetting the rental property&apos;s payment. Rules vary by program.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Program caps and counting rules vary; confirm with your lender&apos;s underwriting. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Debt-to-Income Ratio Guide: Front-End, Back-End & Limits" description="DTI explained: how lenders compute front-end and back-end ratios, program limits, and how to lower DTI, with a $9,000-income worked example." slug="debt-to-income-ratio-guide" faqs={guideFaqs} />
     </div>
   );
 }

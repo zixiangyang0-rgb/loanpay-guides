@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Does preapproval guarantee the loan?", "answer": "No — it is conditional on appraisal, title, unchanged finances, and final underwriting. Treat it as highly likely, not certain."}, {"question": "Will multiple preapprovals hurt credit?", "answer": "Rate-shopping pulls within about two weeks generally count as one inquiry. Batch applications rather than spreading them over months."}, {"question": "How much should my letter show?", "answer": "Ask for the letter to match the offer price, not your maximum — showing $600,000 capacity on a $450,000 offer weakens negotiation."}, {"question": "Preapproval vs pre-qualification spelling?", "answer": "Lenders use both spellings; substance matters more than the hyphen. Ask what was verified, not what it is called."}];
 
 export const metadata: Metadata = {
   title: "Preapproval vs Prequalification: What Sellers Trust",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Prequalification is a quick, unverified estimate from self-reported numbers. Preapproval is a documented, underwriter-backed review of credit, income, and assets stating what a lender will likely lend. Sellers and listing agents trust the second and mostly ignore the first. In competitive markets, offers without a real preapproval rarely get countered. This guide shows what each includes, which documents to gather, how credit is affected, and how to turn approval into an offer that closes.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">What each actually verifies</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Lenders re-verify credit, employment, and funds before funding. A new car loan, missed payment, or job switch can trigger re-underwriting or denial — even with a preapproval letter. Keep payments current, avoid moving money between accounts unnecessarily, document every gift with a proper letter and trail, and disclose new debts immediately. If denied, request the specific reasons in writing, address them (DTI, reserves, property issues), and seek a second opinion from a different lender type — banks, credit unions, and brokers see risk differently.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does preapproval guarantee the loan?</p><p className="mt-2 opacity-80">No — it is conditional on appraisal, title, unchanged finances, and final underwriting. Treat it as highly likely, not certain.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Will multiple preapprovals hurt credit?</p><p className="mt-2 opacity-80">Rate-shopping pulls within about two weeks generally count as one inquiry. Batch applications rather than spreading them over months.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How much should my letter show?</p><p className="mt-2 opacity-80">Ask for the letter to match the offer price, not your maximum — showing $600,000 capacity on a $450,000 offer weakens negotiation.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Preapproval vs pre-qualification spelling?</p><p className="mt-2 opacity-80">Lenders use both spellings; substance matters more than the hyphen. Ask what was verified, not what it is called.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does preapproval guarantee the loan?</summary><p className="mt-2 opacity-80">No — it is conditional on appraisal, title, unchanged finances, and final underwriting. Treat it as highly likely, not certain.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will multiple preapprovals hurt credit?</summary><p className="mt-2 opacity-80">Rate-shopping pulls within about two weeks generally count as one inquiry. Batch applications rather than spreading them over months.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How much should my letter show?</summary><p className="mt-2 opacity-80">Ask for the letter to match the offer price, not your maximum — showing $600,000 capacity on a $450,000 offer weakens negotiation.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Preapproval vs pre-qualification spelling?</summary><p className="mt-2 opacity-80">Lenders use both spellings; substance matters more than the hyphen. Ask what was verified, not what it is called.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Lender processes vary; confirm conditions and expiration in writing. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Preapproval vs Prequalification: What Sellers Trust" description="Preapproval vs prequalification explained: verification levels, documents, timing, credit effects, and how to make an offer that wins." slug="preapproval-vs-prequalification" faqs={guideFaqs} />
     </div>
   );
 }

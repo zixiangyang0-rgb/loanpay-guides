@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Are title loans better than payday?", "answer": "No — they risk your car at triple-digit APRs. Losing transportation usually costs more than the loan solved."}, {"question": "What is a PAL exactly?", "answer": "A small Payday Alternative Loan from federal credit unions: $200–$2,000, 1–12 months, capped rates and fees, designed as a payday exit."}, {"question": "Will asking billers hurt credit?", "answer": "Payment plans themselves rarely report; missing payments without a plan can. Always get the agreement noted on the account."}, {"question": "Can I get help with food and utilities?", "answer": "Yes — SNAP, LIHEAP, local pantries, and 211 referrals help millions yearly. Benefits take days to weeks, so apply before crisis."}];
 
 export const metadata: Metadata = {
   title: "Payday Loan Alternatives: 10 Cheaper Ways to Cover a Gap",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A typical payday loan charges $15–$30 per $100 for two weeks — roughly 300–600 percent APR — and rolls over into new fees when payday cannot cover both the loan and living costs. Title, pawn, and rent-to-own products run similarly hot. Almost every alternative costs less, including awkward ones like calling the biller. This guide ranks ten options by cost and speed, shows the brutal math on $500, and gives a same-day action plan plus an exit path if you already borrowed.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The $500 test: what each option costs</h2>
         <div className="mt-4 overflow-x-auto">
@@ -44,17 +51,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Stop rollovers first: request an extended payment plan where your state requires lenders to offer one (many do after several rollovers). Revoke ACH authorization in writing if debits threaten essentials, while still owing the balance — you must arrange alternate payment. Prioritize the payday balance over lower-APR debts because its effective rate dwarfs everything. Negotiate a settlement or fee waiver in exchange for a dated payoff. File complaints with your state attorney general or financial regulator if the lender exceeds legal rates — illegal online lenders often fold on challenge. Then build a $500 mini-buffer so the next surprise skips the storefront.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Are title loans better than payday?</p><p className="mt-2 opacity-80">No — they risk your car at triple-digit APRs. Losing transportation usually costs more than the loan solved.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What is a PAL exactly?</p><p className="mt-2 opacity-80">A small Payday Alternative Loan from federal credit unions: $200–$2,000, 1–12 months, capped rates and fees, designed as a payday exit.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Will asking billers hurt credit?</p><p className="mt-2 opacity-80">Payment plans themselves rarely report; missing payments without a plan can. Always get the agreement noted on the account.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I get help with food and utilities?</p><p className="mt-2 opacity-80">Yes — SNAP, LIHEAP, local pantries, and 211 referrals help millions yearly. Benefits take days to weeks, so apply before crisis.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are title loans better than payday?</summary><p className="mt-2 opacity-80">No — they risk your car at triple-digit APRs. Losing transportation usually costs more than the loan solved.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What is a PAL exactly?</summary><p className="mt-2 opacity-80">A small Payday Alternative Loan from federal credit unions: $200–$2,000, 1–12 months, capped rates and fees, designed as a payday exit.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will asking billers hurt credit?</summary><p className="mt-2 opacity-80">Payment plans themselves rarely report; missing payments without a plan can. Always get the agreement noted on the account.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get help with food and utilities?</summary><p className="mt-2 opacity-80">Yes — SNAP, LIHEAP, local pantries, and 211 referrals help millions yearly. Benefits take days to weeks, so apply before crisis.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. State payday rules differ widely; check your regulator. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Payday Loan Alternatives: 10 Cheaper Ways to Cover a Gap" description="Trapped by payday loans? Compare 10 cheaper alternatives — payment plans, credit-union PALs, 0% cards, aid programs — with a $500 cost comparison table." slug="payday-loan-alternatives" faqs={guideFaqs} />
     </div>
   );
 }

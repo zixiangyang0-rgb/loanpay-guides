@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can I buy a farm with USDA?", "answer": "No — the home cannot be income-producing farmland. Large lots are fine if residential and modest; working agricultural use disqualifies."}, {"question": "Are there loan limits?", "answer": "No fixed national max like conforming; qualifying income and appraisal effectively cap the price. High-cost pockets still constrain through DTI."}, {"question": "Can I refinance a USDA loan?", "answer": "Yes — USDA streamlined and non-streamlined refinances plus conventional refinance exits exist once equity and credit allow."}, {"question": "Do I need perfect credit?", "answer": "No. Automated approvals favor 640-plus, but manual underwrites with strong rent history and reserves can succeed lower. Ask lenders about manual paths."}];
 
 export const metadata: Metadata = {
   title: "USDA Loan Guide 2026: Zero-Down Rural Homeownership",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           USDA Rural Development loans help modest-income buyers purchase homes in eligible rural and suburban areas with zero down payment, below-market rates, and low guarantee fees. The catch is geography plus income caps: the home must sit in a USDA-eligible area and household income must fall under local limits — often around 115 percent of area median. For qualifying buyers, USDA beats FHA on monthly cost and rivals VA without military service. This guide maps eligibility, costs, and a complete example.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Eligibility: place, income, property</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Get USDA preapproved with a lender experienced in Rural Development — generalists sometimes misread income calculations that count all adult household income, not just borrowers. Lock the address early: falling in love with an ineligible home wastes appraisal money. Budget for the two-step review (lender plus USDA conditional commitment) which can add a week or two versus conventional. Keep income stable through closing; a raise pushing over the limit or a job change can derail approval. After closing, annual-fee recalculations are automatic and no refinance is needed to benefit as the balance drops.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I buy a farm with USDA?</p><p className="mt-2 opacity-80">No — the home cannot be income-producing farmland. Large lots are fine if residential and modest; working agricultural use disqualifies.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Are there loan limits?</p><p className="mt-2 opacity-80">No fixed national max like conforming; qualifying income and appraisal effectively cap the price. High-cost pockets still constrain through DTI.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I refinance a USDA loan?</p><p className="mt-2 opacity-80">Yes — USDA streamlined and non-streamlined refinances plus conventional refinance exits exist once equity and credit allow.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do I need perfect credit?</p><p className="mt-2 opacity-80">No. Automated approvals favor 640-plus, but manual underwrites with strong rent history and reserves can succeed lower. Ask lenders about manual paths.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I buy a farm with USDA?</summary><p className="mt-2 opacity-80">No — the home cannot be income-producing farmland. Large lots are fine if residential and modest; working agricultural use disqualifies.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are there loan limits?</summary><p className="mt-2 opacity-80">No fixed national max like conforming; qualifying income and appraisal effectively cap the price. High-cost pockets still constrain through DTI.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance a USDA loan?</summary><p className="mt-2 opacity-80">Yes — USDA streamlined and non-streamlined refinances plus conventional refinance exits exist once equity and credit allow.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do I need perfect credit?</summary><p className="mt-2 opacity-80">No. Automated approvals favor 640-plus, but manual underwrites with strong rent history and reserves can succeed lower. Ask lenders about manual paths.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. USDA maps, income limits, and fees update annually; verify the address and current fee schedule before offering. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="USDA Loan Guide 2026: Zero-Down Rural Homeownership" description="USDA loans explained: eligibility maps, income limits, guarantee fees, property rules, and a $280,000 worked example for rural buyers." slug="usda-loan-guide" faqs={guideFaqs} />
     </div>
   );
 }

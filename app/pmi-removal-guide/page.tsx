@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Does extra principal remove PMI sooner?", "answer": "Yes — lump sums or monthly extras pull the 80% date forward on the original-value track, and a lower balance also helps on the current-value track."}, {"question": "Do renovations count toward value?", "answer": "They can, once an appraiser recognizes them. Keep permits, contracts, and before/after records. Cosmetic-only work adds less than systems and square footage."}, {"question": "What if my servicer says no?", "answer": "Ask for the written reason, the reapplication date, and whether a different valuation type qualifies. Escalate with the CFPB complaint path if rules seem misapplied."}, {"question": "Is lender-paid PMI removable?", "answer": "No — it is baked into your higher rate with no monthly line to cancel. Refinancing is the only exit, so compare its lifetime cost upfront."}];
 
 export const metadata: Metadata = {
   title: "PMI Removal Guide: Cancel Private Mortgage Insurance Faster",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Private mortgage insurance protects the lender — not you — on conventional loans below 20 percent equity, typically costing $100 to $300 monthly per $300,000 borrowed. Federal law provides two exits: request cancellation at 80 percent loan-to-value and automatic termination at 78 percent of the original value on schedule. Faster paths exist through appreciation-backed appraisals or refinancing. FHA MIP follows different, stricter rules. This guide maps every route with timelines and a worked example.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The three conventional PMI exits</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -43,17 +50,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           First, estimate your LTV both ways: balance divided by original price (servicer&apos;s baseline) and balance divided by a realistic current value. Second, call the servicer for their exact procedure — seasoning, payment-history, and valuation rules vary. Third, avoid new lates and keep the loan current; a recent 30-day late can pause eligibility for a year. Fourth, order only the valuation the servicer accepts (they usually choose the appraiser). Fifth, submit the written request and keep confirmation. If denied, ask for the specific reason and timeline to reapply. For FHA loans, skip this queue: with less than 10 percent down, MIP lasts for life and only a conventional refinance at 80 percent LTV exits early — worth pursuing once equity and credit allow.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does extra principal remove PMI sooner?</p><p className="mt-2 opacity-80">Yes — lump sums or monthly extras pull the 80% date forward on the original-value track, and a lower balance also helps on the current-value track.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do renovations count toward value?</p><p className="mt-2 opacity-80">They can, once an appraiser recognizes them. Keep permits, contracts, and before/after records. Cosmetic-only work adds less than systems and square footage.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What if my servicer says no?</p><p className="mt-2 opacity-80">Ask for the written reason, the reapplication date, and whether a different valuation type qualifies. Escalate with the CFPB complaint path if rules seem misapplied.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Is lender-paid PMI removable?</p><p className="mt-2 opacity-80">No — it is baked into your higher rate with no monthly line to cancel. Refinancing is the only exit, so compare its lifetime cost upfront.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does extra principal remove PMI sooner?</summary><p className="mt-2 opacity-80">Yes — lump sums or monthly extras pull the 80% date forward on the original-value track, and a lower balance also helps on the current-value track.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do renovations count toward value?</summary><p className="mt-2 opacity-80">They can, once an appraiser recognizes them. Keep permits, contracts, and before/after records. Cosmetic-only work adds less than systems and square footage.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if my servicer says no?</summary><p className="mt-2 opacity-80">Ask for the written reason, the reapplication date, and whether a different valuation type qualifies. Escalate with the CFPB complaint path if rules seem misapplied.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is lender-paid PMI removable?</summary><p className="mt-2 opacity-80">No — it is baked into your higher rate with no monthly line to cancel. Refinancing is the only exit, so compare its lifetime cost upfront.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Servicer rules and investor overlays vary; confirm your loan&apos;s exact PMI terms in writing. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="PMI Removal Guide: Cancel Private Mortgage Insurance Faster" description="How to remove PMI: automatic termination, borrower-requested cancellation at 80% LTV, appraisal paths, and FHA MIP differences with a worked timeline." slug="pmi-removal-guide" faqs={guideFaqs} />
     </div>
   );
 }

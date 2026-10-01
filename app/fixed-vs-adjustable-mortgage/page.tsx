@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "What does 5/6 mean?", "answer": "Fixed for 5 years, then adjusts every 6 months. A 7/6 is fixed for 7 years with the same six-month adjustments after."}, {"question": "Can an ARM ever go down?", "answer": "Yes. If the index falls, your adjusted rate can fall to the margin plus index, subject to any floor. Caps limit rises; floors limit drops."}, {"question": "Is there a penalty for paying an ARM early?", "answer": "Most mainstream US ARMs have no prepayment penalty, but verify in writing — some non-QM or investor products do."}, {"question": "Can I convert an ARM to fixed later?", "answer": "Some ARMs include a conversion option for a fee in the early years. Otherwise you refinance, which means new qualifying and closing costs."}];
 
 export const metadata: Metadata = {
   title: "Fixed vs Adjustable-Rate Mortgage: 30-Year, 15-Year & ARMs",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A fixed-rate mortgage locks one interest rate for the entire term — your principal-and-interest payment never changes. An adjustable-rate mortgage (ARM) offers a lower starter rate for a fixed number of years, then adjusts with the market, subject to caps. The choice is really about time horizon and risk tolerance: how long will you keep the loan, how would you handle a higher payment, and what is the upfront discount worth? With 30-year fixed rates elevated as of late 2026, ARMs have drawn fresh attention — but only careful cap math shows whether the gamble pays.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How each loan works</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -54,17 +61,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Rate context as of late September 2026: national 30-year averages sat in the mid-6s to low-7s after the Fed&apos;s September 16 hike, with shorter fixed and initial ARM rates typically 0.5 to 1 point lower. Spreads move constantly, so get same-day quotes for all three structures from at least three lenders and compare APRs, caps, margins, and conversion options side by side.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What does 5/6 mean?</p><p className="mt-2 opacity-80">Fixed for 5 years, then adjusts every 6 months. A 7/6 is fixed for 7 years with the same six-month adjustments after.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can an ARM ever go down?</p><p className="mt-2 opacity-80">Yes. If the index falls, your adjusted rate can fall to the margin plus index, subject to any floor. Caps limit rises; floors limit drops.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Is there a penalty for paying an ARM early?</p><p className="mt-2 opacity-80">Most mainstream US ARMs have no prepayment penalty, but verify in writing — some non-QM or investor products do.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I convert an ARM to fixed later?</p><p className="mt-2 opacity-80">Some ARMs include a conversion option for a fee in the early years. Otherwise you refinance, which means new qualifying and closing costs.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What does 5/6 mean?</summary><p className="mt-2 opacity-80">Fixed for 5 years, then adjusts every 6 months. A 7/6 is fixed for 7 years with the same six-month adjustments after.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can an ARM ever go down?</summary><p className="mt-2 opacity-80">Yes. If the index falls, your adjusted rate can fall to the margin plus index, subject to any floor. Caps limit rises; floors limit drops.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is there a penalty for paying an ARM early?</summary><p className="mt-2 opacity-80">Most mainstream US ARMs have no prepayment penalty, but verify in writing — some non-QM or investor products do.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I convert an ARM to fixed later?</summary><p className="mt-2 opacity-80">Some ARMs include a conversion option for a fee in the early years. Otherwise you refinance, which means new qualifying and closing costs.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Rate examples are as-of illustrations. Compare live quotes with the <a className="underline" href="https://loanpaylogic.com/mortgage-comparison-calculator/">loanpaylogic.com comparison calculator</a> and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Fixed vs Adjustable-Rate Mortgage: 30-Year, 15-Year & ARMs" description="Fixed vs adjustable-rate mortgages compared: payment stability, caps, break-even math, and who each loan suits. Includes 5/6 ARM example and comparison table." slug="fixed-vs-adjustable-mortgage" faqs={guideFaqs} />
     </div>
   );
 }

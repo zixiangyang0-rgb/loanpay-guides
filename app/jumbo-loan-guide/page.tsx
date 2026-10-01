@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Are jumbo rates always higher?", "answer": "Usually slightly higher, but not always — portfolio banks competing for wealthy borrowers sometimes price jumbo at or below conforming. Shop three-plus lenders."}, {"question": "Can I avoid jumbo with two loans?", "answer": "Sometimes via piggyback seconds. The blended rate may beat jumbo, but you manage two payments and the second lien&apos;s higher, often variable rate."}, {"question": "Do jumbo loans allow PMI?", "answer": "Rarely below 10–15% down, and most lenders simply require 10–20% down instead. Lender-paid structures exist at higher rates."}, {"question": "Can I refinance jumbo to conforming later?", "answer": "Yes, if paydown or appreciation brings the balance under the county limit and you meet conventional standards — a common plan after bonuses or equity growth."}];
 
 export const metadata: Metadata = {
   title: "Jumbo Loan Guide 2026: Limits, Rates & Qualification",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A jumbo loan exceeds the conforming limit for your county — $832,750 baseline for one-unit homes in most counties in 2026, up to $1,249,125 in high-cost areas. Because Fannie Mae and Freddie Mac cannot buy these loans, lenders keep the risk and set stricter rules: bigger down payments, stronger credit, larger reserves, and fuller documentation. Jumbo rates often run close to or slightly above conforming rates, moving with the lender&apos;s own portfolio appetite. This guide shows when jumbo is unavoidable, how to qualify, and the numbers on a $1.1 million purchase.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">When jumbo applies in 2026</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Larger down payments can cross back under the conforming line — borrowing $830,000 instead of $880,000 on the example saves jumbo pricing and possibly PMI-free conventional terms. ARMs with 7- or 10-year fixed periods often price 0.5 to 0.75 point below 30-year jumbo fixed, fitting buyers who will sell, recast after a liquidity event, or refinance. Relationship discounts at portfolio banks (moving deposits or investments) can shave 0.125 to 0.25 point. Points buy-downs pencil out only for long holds; compute break-even against realistic move or refinance timing. As of late September 2026, jumbo averages tracked modestly above conforming in daily surveys — confirm same-day quotes since spreads shift with bank demand.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Are jumbo rates always higher?</p><p className="mt-2 opacity-80">Usually slightly higher, but not always — portfolio banks competing for wealthy borrowers sometimes price jumbo at or below conforming. Shop three-plus lenders.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I avoid jumbo with two loans?</p><p className="mt-2 opacity-80">Sometimes via piggyback seconds. The blended rate may beat jumbo, but you manage two payments and the second lien&apos;s higher, often variable rate.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do jumbo loans allow PMI?</p><p className="mt-2 opacity-80">Rarely below 10–15% down, and most lenders simply require 10–20% down instead. Lender-paid structures exist at higher rates.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I refinance jumbo to conforming later?</p><p className="mt-2 opacity-80">Yes, if paydown or appreciation brings the balance under the county limit and you meet conventional standards — a common plan after bonuses or equity growth.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are jumbo rates always higher?</summary><p className="mt-2 opacity-80">Usually slightly higher, but not always — portfolio banks competing for wealthy borrowers sometimes price jumbo at or below conforming. Shop three-plus lenders.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I avoid jumbo with two loans?</summary><p className="mt-2 opacity-80">Sometimes via piggyback seconds. The blended rate may beat jumbo, but you manage two payments and the second lien&apos;s higher, often variable rate.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do jumbo loans allow PMI?</summary><p className="mt-2 opacity-80">Rarely below 10–15% down, and most lenders simply require 10–20% down instead. Lender-paid structures exist at higher rates.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance jumbo to conforming later?</summary><p className="mt-2 opacity-80">Yes, if paydown or appreciation brings the balance under the county limit and you meet conventional standards — a common plan after bonuses or equity growth.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. County limits and jumbo guidelines vary; verify 2026 FHFA values for your county. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Jumbo Loan Guide 2026: Limits, Rates & Qualification" description="Jumbo mortgages above $832,750 explained: when you need one, rates, down payments, reserves, and a $1.1M worked example. 2026 limits included." slug="jumbo-loan-guide" faqs={guideFaqs} />
     </div>
   );
 }

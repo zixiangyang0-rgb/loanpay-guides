@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can I reuse my VA benefit?", "answer": "Yes — restore entitlement after sale and payoff, or use remaining partial entitlement for a second property within limit and guaranty rules."}, {"question": "Do VA loans take longer to close?", "answer": "Not inherently. Appraisal scheduling and repair conditions can add days, but prepared lenders close VA loans on standard timelines."}, {"question": "Can a seller refuse a VA offer?", "answer": "Sellers cannot discriminate against veteran status, but they may weigh terms. Strong earnest money and flexible dates help compete."}, {"question": "Is the funding fee ever waived?", "answer": "Yes — for 10%+ disability-rated veterans, some active-duty Purple Heart recipients, and qualifying surviving spouses. Check current VA tables."}];
 
 export const metadata: Metadata = {
   title: "VA Loan Guide 2026: Zero Down, No PMI & Funding Fees",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           VA loans backed by the Department of Veterans Affairs offer zero down payment, no private mortgage insurance, competitive rates, and flexible credit standards for eligible veterans, active-duty members, and surviving spouses. Borrowers pay a one-time funding fee instead of monthly PMI — and many disabled veterans are exempt entirely. With no conforming loan-limit cap for full-entitlement borrowers since 2020, qualified buyers can finance higher prices without a jumbo structure. If you earned the benefit, this is usually the first program to evaluate.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Who qualifies and how entitlement works</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           VA appraisals verify value and minimum property requirements — safe water, sound roof, adequate systems — with a Tidewater process letting parties submit comps if value comes low. The VA Notice of Value protects you: if it trails the price, you can renegotiate, pay the gap, or walk. VA loans are assumable by qualified buyers — a standout feature when rates are high, since a buyer may assume your low rate with VA approval and a funding-fee transfer. For refinancing, the Interest Rate Reduction Refinance Loan (IRRRL) offers streamlined, low-doc rate drops with minimal appraisal needs. Occupancy rules require a primary residence within about 60 days, though later moves with PCS orders have established paths.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I reuse my VA benefit?</p><p className="mt-2 opacity-80">Yes — restore entitlement after sale and payoff, or use remaining partial entitlement for a second property within limit and guaranty rules.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do VA loans take longer to close?</p><p className="mt-2 opacity-80">Not inherently. Appraisal scheduling and repair conditions can add days, but prepared lenders close VA loans on standard timelines.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can a seller refuse a VA offer?</p><p className="mt-2 opacity-80">Sellers cannot discriminate against veteran status, but they may weigh terms. Strong earnest money and flexible dates help compete.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Is the funding fee ever waived?</p><p className="mt-2 opacity-80">Yes — for 10%+ disability-rated veterans, some active-duty Purple Heart recipients, and qualifying surviving spouses. Check current VA tables.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I reuse my VA benefit?</summary><p className="mt-2 opacity-80">Yes — restore entitlement after sale and payoff, or use remaining partial entitlement for a second property within limit and guaranty rules.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do VA loans take longer to close?</summary><p className="mt-2 opacity-80">Not inherently. Appraisal scheduling and repair conditions can add days, but prepared lenders close VA loans on standard timelines.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can a seller refuse a VA offer?</summary><p className="mt-2 opacity-80">Sellers cannot discriminate against veteran status, but they may weigh terms. Strong earnest money and flexible dates help compete.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is the funding fee ever waived?</summary><p className="mt-2 opacity-80">Yes — for 10%+ disability-rated veterans, some active-duty Purple Heart recipients, and qualifying surviving spouses. Check current VA tables.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. VA rules and fees update periodically; confirm COE and fee tables with the VA or your lender. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="VA Loan Guide 2026: Zero Down, No PMI & Funding Fees" description="VA home loans for 2026: eligibility, entitlement, funding fees, no PMI advantage, and a $400,000 worked example for veterans and service members." slug="va-loan-guide" faqs={guideFaqs} />
     </div>
   );
 }

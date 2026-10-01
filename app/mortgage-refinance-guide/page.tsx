@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "How much equity do I need?", "answer": "Usually at least 3–5% for rate-and-term conventional, 20% to avoid PMI, and more for cash-out. FHA/VA streamlines have their own seasoning rules."}, {"question": "Does refinancing hurt credit?", "answer": "One hard inquiry and a new account may dip scores slightly; rate-shopping inside two weeks counts as one. On-time payments recover quickly."}, {"question": "Can I refinance with the same lender?", "answer": "Yes, and retention offers sometimes cut fees — but still get outside quotes. Loyalty discounts must beat the market, not just sound nice."}, {"question": "What is loan seasoning?", "answer": "Minimum time since the last closing before a new refinance — often 6 months. Cash-out and investment properties face longer waits."}];
 
 export const metadata: Metadata = {
   title: "Mortgage Refinance Guide: Break-Even, Costs & Timing",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Refinancing replaces your current mortgage with a new one — new rate, new term, new closing costs. The classic win is rate-and-term: same balance, lower rate, lower payment. Other wins include dropping PMI or FHA MIP, shortening the term, or switching ARM to fixed for certainty. The trap is resetting the clock and paying fees that exceed the savings. This guide gives you the break-even formula, the fee anatomy, and a full $380,000 example so you can decide on numbers, not headlines.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The break-even rule</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Refinance when the math clears three gates: break-even inside your likely hold, total-interest savings (or a deliberate, valued tradeoff), and improved loan features. Gather three Loan Estimates on the same day — rates move intraday — and compare APR, lender credits, points, and cash to close. Improve approval odds first: lift scores above 740 thresholds, keep DTI tidy, avoid new credit, and document income cleanly. Lock strategy matters into Fed meetings (the next FOMC decision was due late October 2026): float with a stop or lock for certainty — never gamble a purchase closing on a guess. After closing, redirect part of the savings to principal or investments rather than absorbing it all into spending.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How much equity do I need?</p><p className="mt-2 opacity-80">Usually at least 3–5% for rate-and-term conventional, 20% to avoid PMI, and more for cash-out. FHA/VA streamlines have their own seasoning rules.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does refinancing hurt credit?</p><p className="mt-2 opacity-80">One hard inquiry and a new account may dip scores slightly; rate-shopping inside two weeks counts as one. On-time payments recover quickly.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I refinance with the same lender?</p><p className="mt-2 opacity-80">Yes, and retention offers sometimes cut fees — but still get outside quotes. Loyalty discounts must beat the market, not just sound nice.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What is loan seasoning?</p><p className="mt-2 opacity-80">Minimum time since the last closing before a new refinance — often 6 months. Cash-out and investment properties face longer waits.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How much equity do I need?</summary><p className="mt-2 opacity-80">Usually at least 3–5% for rate-and-term conventional, 20% to avoid PMI, and more for cash-out. FHA/VA streamlines have their own seasoning rules.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does refinancing hurt credit?</summary><p className="mt-2 opacity-80">One hard inquiry and a new account may dip scores slightly; rate-shopping inside two weeks counts as one. On-time payments recover quickly.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance with the same lender?</summary><p className="mt-2 opacity-80">Yes, and retention offers sometimes cut fees — but still get outside quotes. Loyalty discounts must beat the market, not just sound nice.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What is loan seasoning?</summary><p className="mt-2 opacity-80">Minimum time since the last closing before a new refinance — often 6 months. Cash-out and investment properties face longer waits.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Rate examples are as-of illustrations. Compare live Loan Estimates and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Mortgage Refinance Guide: Break-Even, Costs & Timing" description="When refinancing pays: rate-and-term math, closing costs, break-even formula, and a $380,000 example. Learn to time a refinance in 2026." slug="mortgage-refinance-guide" faqs={guideFaqs} />
     </div>
   );
 }

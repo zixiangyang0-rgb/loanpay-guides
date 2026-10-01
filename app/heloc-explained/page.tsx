@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can a lender cut my HELOC?", "answer": "Yes. Agreements typically allow freezing or reducing lines if values drop materially, credit deteriorates, or the home is listed. Keep utilization moderate and payments current."}, {"question": "Is HELOC interest tax-deductible?", "answer": "Sometimes — generally only for buy/build/improve uses on the securing home when you itemize. Personal spending does not qualify. Confirm with a tax pro."}, {"question": "What happens at the end of the draw?", "answer": "The line closes to new draws and the balance amortizes. Payments usually rise. Some lenders offer renewal or refinance; underwrite as if they will not."}, {"question": "HELOC or home-equity loan?", "answer": "HELOC for phased or uncertain draws; fixed loan for a known lump sum where payment certainty matters. See our dedicated comparison guide."}];
 
 export const metadata: Metadata = {
   title: "HELOC Explained: Draws, Rates & Risks in Plain English",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A home equity line of credit (HELOC) is revolving credit secured by your home: borrow, repay, and re-borrow up to a limit during a draw period, then repay any balance over a repayment period. Rates are usually variable, tied to prime plus a margin, so payments move with the market. Used for phased projects or as a standby reserve, a HELOC is flexible and relatively low-rate. Used for lifestyle spending, it converts home equity — your safety net — into debt. This guide explains phases, pricing, qualification, and the math on an $80,000 line.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Draw period vs repayment period</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -50,17 +57,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Manage the line actively: set your own principal payments during the draw, lock fixed portions when offered at attractive spreads, monitor prime moves after Fed meetings (the September 2026 hike lifted variable borrowing costs), and keep total housing debt service comfortable if income dipped 20 percent. Freeze the card or checks if spending tempts you — access friction is a feature.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can a lender cut my HELOC?</p><p className="mt-2 opacity-80">Yes. Agreements typically allow freezing or reducing lines if values drop materially, credit deteriorates, or the home is listed. Keep utilization moderate and payments current.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Is HELOC interest tax-deductible?</p><p className="mt-2 opacity-80">Sometimes — generally only for buy/build/improve uses on the securing home when you itemize. Personal spending does not qualify. Confirm with a tax pro.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What happens at the end of the draw?</p><p className="mt-2 opacity-80">The line closes to new draws and the balance amortizes. Payments usually rise. Some lenders offer renewal or refinance; underwrite as if they will not.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">HELOC or home-equity loan?</p><p className="mt-2 opacity-80">HELOC for phased or uncertain draws; fixed loan for a known lump sum where payment certainty matters. See our dedicated comparison guide.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can a lender cut my HELOC?</summary><p className="mt-2 opacity-80">Yes. Agreements typically allow freezing or reducing lines if values drop materially, credit deteriorates, or the home is listed. Keep utilization moderate and payments current.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is HELOC interest tax-deductible?</summary><p className="mt-2 opacity-80">Sometimes — generally only for buy/build/improve uses on the securing home when you itemize. Personal spending does not qualify. Confirm with a tax pro.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What happens at the end of the draw?</summary><p className="mt-2 opacity-80">The line closes to new draws and the balance amortizes. Payments usually rise. Some lenders offer renewal or refinance; underwrite as if they will not.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">HELOC or home-equity loan?</summary><p className="mt-2 opacity-80">HELOC for phased or uncertain draws; fixed loan for a known lump sum where payment certainty matters. See our dedicated comparison guide.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. HELOC terms vary widely. Compare fixed and variable paths and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="HELOC Explained: Draws, Rates & Risks in Plain English" description="What is a HELOC? How draw and repayment periods, variable rates, and lien risk work, with a $80,000 example and HELOC vs alternatives table." slug="heloc-explained" faqs={guideFaqs} />
     </div>
   );
 }

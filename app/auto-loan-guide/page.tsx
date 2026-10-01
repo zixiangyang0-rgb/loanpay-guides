@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Should I focus on monthly payment or price?", "answer": "Price first. Dealers can hit any payment by stretching the term. Negotiate out-the-door price, then rate, then term — in that order."}, {"question": "Is 0% dealer financing real?", "answer": "Yes, but usually for top-tier credit, short terms, and instead of a rebate. Compare 0% for 36 months versus a $2,500 rebate at 6% — the rebate often wins on longer terms."}, {"question": "Can I pay extra on an auto loan?", "answer": "Usually yes — simple interest means extra principal immediately cuts future interest. Confirm no prepayment penalty and that extras apply to principal."}, {"question": "New, used, or certified?", "answer": "A two- to three-year-old reliable model often balances depreciation and repair risk. Certified adds warranty at a price premium worth comparing."}];
 
 export const metadata: Metadata = {
   title: "Auto Loan Guide: Rates, Terms & Dealer Traps in 2026",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Auto loans are simple-interest installment loans secured by the vehicle: fixed payments, fixed term, and the car as collateral. The expensive parts are the term length, the rate markup, and add-ons sold in the finance office. A 72-month loan can feel affordable while costing thousands more and leaving you owing more than the car is worth. This guide explains rate tiers, term tradeoffs, preapproval leverage, and the exact numbers on a $32,000 purchase so you drive away with the car and the deal.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Rates, terms, and what credit buys</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -50,17 +57,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Refinancing works for cars too: if rates fall or your score improved after six to twelve on-time payments, refinancing from 11 to 7 percent on a $20,000 balance with three years left saves roughly $1,300 and can drop the payment $35. Watch title fees and avoid extending the term past the car&apos;s reliable life. Never take a title or payday loan against a paid-off car — triple-digit APRs risk the vehicle itself.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Should I focus on monthly payment or price?</p><p className="mt-2 opacity-80">Price first. Dealers can hit any payment by stretching the term. Negotiate out-the-door price, then rate, then term — in that order.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Is 0% dealer financing real?</p><p className="mt-2 opacity-80">Yes, but usually for top-tier credit, short terms, and instead of a rebate. Compare 0% for 36 months versus a $2,500 rebate at 6% — the rebate often wins on longer terms.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I pay extra on an auto loan?</p><p className="mt-2 opacity-80">Usually yes — simple interest means extra principal immediately cuts future interest. Confirm no prepayment penalty and that extras apply to principal.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">New, used, or certified?</p><p className="mt-2 opacity-80">A two- to three-year-old reliable model often balances depreciation and repair risk. Certified adds warranty at a price premium worth comparing.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I focus on monthly payment or price?</summary><p className="mt-2 opacity-80">Price first. Dealers can hit any payment by stretching the term. Negotiate out-the-door price, then rate, then term — in that order.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is 0% dealer financing real?</summary><p className="mt-2 opacity-80">Yes, but usually for top-tier credit, short terms, and instead of a rebate. Compare 0% for 36 months versus a $2,500 rebate at 6% — the rebate often wins on longer terms.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I pay extra on an auto loan?</summary><p className="mt-2 opacity-80">Usually yes — simple interest means extra principal immediately cuts future interest. Confirm no prepayment penalty and that extras apply to principal.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">New, used, or certified?</summary><p className="mt-2 opacity-80">A two- to three-year-old reliable model often balances depreciation and repair risk. Certified adds warranty at a price premium worth comparing.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Rate ranges are as-of estimates. Get preapproved, compare total cost, and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Auto Loan Guide: Rates, Terms & Dealer Traps in 2026" description="How auto loans work in 2026: rates by credit tier, term math, down payments, dealer markup, and a $32,000 worked example with comparison table." slug="auto-loan-guide" faqs={guideFaqs} />
     </div>
   );
 }

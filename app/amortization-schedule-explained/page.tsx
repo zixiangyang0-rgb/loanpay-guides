@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Does making extra payments change my due date?", "answer": "Extra principal shortens the loan but usually does not change the next due date unless you specifically prepay ahead. Confirm with your servicer that extra funds are applied to principal, not held as unapplied funds."}, {"question": "Why is my payoff higher than my balance?", "answer": "Payoff quotes add accrued daily interest through the payoff date plus any fees. A monthly statement balance is a snapshot; payoff is the moving total."}, {"question": "Do biweekly payments change amortization?", "answer": "Yes — 26 half-payments equal 13 full payments a year, adding one extra payment annually that cuts years and interest. See our biweekly guide for the math."}, {"question": "Can I get my amortization schedule free?", "answer": "Yes. Your servicer, lender, or the loanpaylogic.com calculators can generate one. Keep a copy with your closing documents."}];
 
 export const metadata: Metadata = {
   title: "Amortization Schedule Explained With Examples",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           An amortization schedule is the month-by-month plan showing how a fixed loan pays itself off. It lists every payment date, how much of that payment covers interest, how much reduces principal, and the remaining balance. The total payment stays level, but the mix changes dramatically: early payments are mostly interest, late payments are mostly principal. Understanding that shift explains why extra payments early save so much, why refinancing restarts the interest-heavy phase, and why a 15-year loan builds equity far faster than a 30-year loan at the same rate.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How amortization math works</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -59,17 +66,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           As of late September 2026, 30-year fixed rates were reported roughly in the mid-6s to low-7s, elevated after the Federal Reserve raised its policy rate on September 16. Higher rates steepen the early-interest pattern: at 7.5 percent the first-year interest share on a 30-year loan exceeds 90 percent. Use that as motivation to compare total interest, not just the monthly payment, when choosing between term lengths. All rate references here are as-of illustrations and estimates, not predictions.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does making extra payments change my due date?</p><p className="mt-2 opacity-80">Extra principal shortens the loan but usually does not change the next due date unless you specifically prepay ahead. Confirm with your servicer that extra funds are applied to principal, not held as unapplied funds.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Why is my payoff higher than my balance?</p><p className="mt-2 opacity-80">Payoff quotes add accrued daily interest through the payoff date plus any fees. A monthly statement balance is a snapshot; payoff is the moving total.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do biweekly payments change amortization?</p><p className="mt-2 opacity-80">Yes — 26 half-payments equal 13 full payments a year, adding one extra payment annually that cuts years and interest. See our biweekly guide for the math.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I get my amortization schedule free?</p><p className="mt-2 opacity-80">Yes. Your servicer, lender, or the loanpaylogic.com calculators can generate one. Keep a copy with your closing documents.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does making extra payments change my due date?</summary><p className="mt-2 opacity-80">Extra principal shortens the loan but usually does not change the next due date unless you specifically prepay ahead. Confirm with your servicer that extra funds are applied to principal, not held as unapplied funds.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Why is my payoff higher than my balance?</summary><p className="mt-2 opacity-80">Payoff quotes add accrued daily interest through the payoff date plus any fees. A monthly statement balance is a snapshot; payoff is the moving total.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do biweekly payments change amortization?</summary><p className="mt-2 opacity-80">Yes — 26 half-payments equal 13 full payments a year, adding one extra payment annually that cuts years and interest. See our biweekly guide for the math.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get my amortization schedule free?</summary><p className="mt-2 opacity-80">Yes. Your servicer, lender, or the loanpaylogic.com calculators can generate one. Keep a copy with your closing documents.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Amortization examples are simplified illustrations. Compare scenarios with the <a className="underline" href="https://loanpaylogic.com/mortgage-calculator/">loanpaylogic.com mortgage calculator</a>, and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Amortization Schedule Explained With Examples" description="What an amortization schedule is, how each payment splits into principal and interest, and how extra payments shorten a 30-year loan. Worked example included." slug="amortization-schedule-explained" faqs={guideFaqs} />
     </div>
   );
 }

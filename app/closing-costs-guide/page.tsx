@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can closing costs be rolled into the loan?", "answer": "Lender credits offset them via a higher rate, and some costs can be financed within LTV limits — but you pay interest on every financed dollar."}, {"question": "What is cash to close vs down payment?", "answer": "Down payment is your equity; cash to close is down payment plus net fees, prepaids, and escrow minus credits and deposits."}, {"question": "Do refinances have closing costs?", "answer": "Yes — typically 1–3% of the loan, with the same shopping logic. No-cost refis trade fees for rate."}, {"question": "What if costs jump at closing?", "answer": "Tolerance rules limit increases on lender and chosen-provider fees. Flag variances on the Closing Disclosure and delay signing if unexplained."}];
 
 export const metadata: Metadata = {
   title: "Closing Costs Guide: Fees, Credits & How to Save",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Closing costs are the fees and prepayments due at settlement — typically 2 to 5 percent of the loan amount on purchases, plus down payment and escrow seeding. They split into lender charges, third-party services, government recording and transfer taxes, and prepaid interest, taxes, and insurance. Buyers who compare only the rate overpay here. This guide itemizes every bucket, works a $400,000 example line by line, and shows which fees are negotiable and which are set by law.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The four buckets</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -44,17 +51,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Get three Loan Estimates the same day and negotiate Section A directly. Shop title and settlement where your state allows — savings of $500–$1,000 are common. Time closing near month-end to cut prepaid interest days (balanced against scheduling stress). Ask sellers for credits, especially on homes sitting over 30 days or needing work — credits within program limits (often 3–9 percent) beat price cuts for cash-strapped buyers. Weigh lender credits against points using break-even math from our points guide. Finally, check assistance: first-time buyer programs, employer grants, and city bond programs can cover thousands for qualifying households. Never borrow closing funds from new credit without lender approval — it can kill the loan.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can closing costs be rolled into the loan?</p><p className="mt-2 opacity-80">Lender credits offset them via a higher rate, and some costs can be financed within LTV limits — but you pay interest on every financed dollar.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What is cash to close vs down payment?</p><p className="mt-2 opacity-80">Down payment is your equity; cash to close is down payment plus net fees, prepaids, and escrow minus credits and deposits.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do refinances have closing costs?</p><p className="mt-2 opacity-80">Yes — typically 1–3% of the loan, with the same shopping logic. No-cost refis trade fees for rate.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What if costs jump at closing?</p><p className="mt-2 opacity-80">Tolerance rules limit increases on lender and chosen-provider fees. Flag variances on the Closing Disclosure and delay signing if unexplained.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can closing costs be rolled into the loan?</summary><p className="mt-2 opacity-80">Lender credits offset them via a higher rate, and some costs can be financed within LTV limits — but you pay interest on every financed dollar.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What is cash to close vs down payment?</summary><p className="mt-2 opacity-80">Down payment is your equity; cash to close is down payment plus net fees, prepaids, and escrow minus credits and deposits.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do refinances have closing costs?</summary><p className="mt-2 opacity-80">Yes — typically 1–3% of the loan, with the same shopping logic. No-cost refis trade fees for rate.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if costs jump at closing?</summary><p className="mt-2 opacity-80">Tolerance rules limit increases on lender and chosen-provider fees. Flag variances on the Closing Disclosure and delay signing if unexplained.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Fees vary by state, lender, and program. Compare official Loan Estimates and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Closing Costs Guide: Fees, Credits & How to Save" description="Closing costs explained: lender, title, prepaid, and government fees, who pays what, a $400,000 line-by-line example, and negotiation tactics." slug="closing-costs-guide" faqs={guideFaqs} />
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can I have both?", "answer": "Yes, if equity and DTI allow, but stacking liens raises risk and paperwork. Most households do better with one well-chosen product."}, {"question": "Which has lower closing costs?", "answer": "HELOCs often advertise lower upfront costs but may add annual or early-closure fees. Compare two-year and five-year all-in costs, not just day-one fees."}, {"question": "Can I lock a HELOC rate?", "answer": "Many lenders offer fixed-rate lock options on drawn portions for a fee or spread. Ask about minimum lock amounts and whether new draws remain variable."}, {"question": "What if home values fall?", "answer": "Lenders can freeze HELOC draws and both products leave you owing on a smaller equity cushion. Borrow well below the maximum to keep margin."}];
 
 export const metadata: Metadata = {
   title: "Home Equity Loan vs HELOC: Lump Sum or Credit Line?",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Both products borrow against home equity, but they behave differently. A home equity loan delivers one lump sum at a fixed rate with equal payments from day one. A HELOC offers a reusable credit line, usually at a variable rate, with flexible draws and often interest-only minimums at first. Choose the loan for known, one-time costs and payment certainty; choose the line for phased, uncertain, or standby needs where flexibility outweighs rate risk. Either way your home secures the debt — missed payments can lead to foreclosure.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Core differences</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Tax note: interest on either product is generally deductible only if funds buy, build, or substantially improve the securing home and you itemize deductions. Debt consolidation or personal spending does not qualify under current law. Confirm with a tax professional.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I have both?</p><p className="mt-2 opacity-80">Yes, if equity and DTI allow, but stacking liens raises risk and paperwork. Most households do better with one well-chosen product.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Which has lower closing costs?</p><p className="mt-2 opacity-80">HELOCs often advertise lower upfront costs but may add annual or early-closure fees. Compare two-year and five-year all-in costs, not just day-one fees.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I lock a HELOC rate?</p><p className="mt-2 opacity-80">Many lenders offer fixed-rate lock options on drawn portions for a fee or spread. Ask about minimum lock amounts and whether new draws remain variable.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What if home values fall?</p><p className="mt-2 opacity-80">Lenders can freeze HELOC draws and both products leave you owing on a smaller equity cushion. Borrow well below the maximum to keep margin.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I have both?</summary><p className="mt-2 opacity-80">Yes, if equity and DTI allow, but stacking liens raises risk and paperwork. Most households do better with one well-chosen product.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Which has lower closing costs?</summary><p className="mt-2 opacity-80">HELOCs often advertise lower upfront costs but may add annual or early-closure fees. Compare two-year and five-year all-in costs, not just day-one fees.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I lock a HELOC rate?</summary><p className="mt-2 opacity-80">Many lenders offer fixed-rate lock options on drawn portions for a fee or spread. Ask about minimum lock amounts and whether new draws remain variable.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if home values fall?</summary><p className="mt-2 opacity-80">Lenders can freeze HELOC draws and both products leave you owing on a smaller equity cushion. Borrow well below the maximum to keep margin.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Examples are estimates. Compare live terms and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Home Equity Loan vs HELOC: Lump Sum or Credit Line?" description="Home equity loan vs HELOC compared: fixed vs variable rates, payments, fees, and use cases, with a $60,000 example and decision table." slug="home-equity-loan-vs-heloc" faqs={guideFaqs} />
     </div>
   );
 }

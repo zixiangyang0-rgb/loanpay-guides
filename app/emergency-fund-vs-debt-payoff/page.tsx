@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Where should I keep it?", "answer": "A separate high-yield savings account at a different bank than checking reduces temptation while staying liquid. Money markets work too; stocks do not."}, {"question": "Should I pause investing to pay debt?", "answer": "Keep any employer match, pause beyond that for debt above ~7–8%, then resume. Matches are free money no debt rate beats."}, {"question": "What counts as an emergency?", "answer": "Job loss, essential repairs, medical needs — not sales, travel, or gifts. Define it in writing before funding."}, {"question": "How do couples split this?", "answer": "One joint buffer sized on shared essentials, then joint high-rate payoff. Keep individual mini-buffers only if spending friction demands it."}];
 
 export const metadata: Metadata = {
   title: "Emergency Fund vs Debt Payoff: Where Extra Dollars Go",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Extra dollars face a tug-of-war: cash in savings earns modest interest while debt charges far more, yet zero savings means every surprise lands on a card at high rates. The answer is sequencing, not either-or. Build a small buffer first, attack high-rate debt aggressively, then expand to a full emergency fund before chasing lower-rate debt or investing beyond matches. This guide gives the stages, sizing math, account choices, and a worked $5,000 example.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The staged order that works</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Below 6 percent debt (mortgage, some student loans): fund fully and invest before accelerating payoff, since expected market returns exceed the guaranteed saving. Imminent layoffs: pause extra debt payoff and hoard cash to six-plus months — liquidity beats optimization. Gig or seasonal income: size on the worst quarter, not the average. Health risks: prioritize out-of-pocket-max coverage in the fund. Never raid retirement to build savings — taxes, penalties, and lost compounding dwarf the benefit except to avoid imminent foreclosure or bankruptcy, with professional advice.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Where should I keep it?</p><p className="mt-2 opacity-80">A separate high-yield savings account at a different bank than checking reduces temptation while staying liquid. Money markets work too; stocks do not.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Should I pause investing to pay debt?</p><p className="mt-2 opacity-80">Keep any employer match, pause beyond that for debt above ~7–8%, then resume. Matches are free money no debt rate beats.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What counts as an emergency?</p><p className="mt-2 opacity-80">Job loss, essential repairs, medical needs — not sales, travel, or gifts. Define it in writing before funding.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How do couples split this?</p><p className="mt-2 opacity-80">One joint buffer sized on shared essentials, then joint high-rate payoff. Keep individual mini-buffers only if spending friction demands it.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Where should I keep it?</summary><p className="mt-2 opacity-80">A separate high-yield savings account at a different bank than checking reduces temptation while staying liquid. Money markets work too; stocks do not.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I pause investing to pay debt?</summary><p className="mt-2 opacity-80">Keep any employer match, pause beyond that for debt above ~7–8%, then resume. Matches are free money no debt rate beats.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What counts as an emergency?</summary><p className="mt-2 opacity-80">Job loss, essential repairs, medical needs — not sales, travel, or gifts. Define it in writing before funding.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How do couples split this?</summary><p className="mt-2 opacity-80">One joint buffer sized on shared essentials, then joint high-rate payoff. Keep individual mini-buffers only if spending friction demands it.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. APY and rate figures are as-of estimates. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Emergency Fund vs Debt Payoff: Where Extra Dollars Go" description="Emergency fund vs paying debt: the staged order that protects both goals, sizing rules, where to keep cash, and a $5,000 allocation example." slug="emergency-fund-vs-debt-payoff" faqs={guideFaqs} />
     </div>
   );
 }

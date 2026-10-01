@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PaymentCalculator from "./calculator";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Why did my monthly payment go up if I have a fixed rate?", "answer": "Your principal and interest are fixed, but escrow is not. Higher property taxes or insurance premiums raise the escrow slice. Check the annual escrow statement for the exact shortage and the new monthly amount."}, {"question": "How much of my payment goes to principal at first?", "answer": "Less than most people expect — often only 10 to 20 percent in year one on a 30-year loan. Extra principal payments early therefore cut total interest the most."}, {"question": "Is it better to waive escrow?", "answer": "Some lenders allow it with enough equity and a fee, but you must then save for lump-sum tax and insurance bills yourself. Most first-time buyers do better with escrow."}, {"question": "Does extra principal lower next month&apos;s bill?", "answer": "No — the scheduled payment stays the same, but more of each future payment goes to principal and the loan ends sooner. Recasting is the exception that resets the payment."}];
 
 export const metadata: Metadata = {
   title: "Mortgage Payment Guide: Principal, Interest, Taxes & Insurance",
@@ -35,7 +39,10 @@ export default function MortgagePaymentGuide() {
           use, and walks through a full worked example so you can estimate
           your own payment with confidence.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
 
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The six parts of a typical payment</h2>
@@ -210,24 +217,14 @@ export default function MortgagePaymentGuide() {
           when you shop.
         </p>
 
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5">
-            <p className="font-semibold">Why did my monthly payment go up if I have a fixed rate?</p>
-            <p className="mt-2 opacity-80">Your principal and interest are fixed, but escrow is not. Higher property taxes or insurance premiums raise the escrow slice. Check the annual escrow statement for the exact shortage and the new monthly amount.</p>
-          </div>
-          <div className="glass-card rounded-2xl p-5">
-            <p className="font-semibold">How much of my payment goes to principal at first?</p>
-            <p className="mt-2 opacity-80">Less than most people expect — often only 10 to 20 percent in year one on a 30-year loan. Extra principal payments early therefore cut total interest the most.</p>
-          </div>
-          <div className="glass-card rounded-2xl p-5">
-            <p className="font-semibold">Is it better to waive escrow?</p>
-            <p className="mt-2 opacity-80">Some lenders allow it with enough equity and a fee, but you must then save for lump-sum tax and insurance bills yourself. Most first-time buyers do better with escrow.</p>
-          </div>
-          <div className="glass-card rounded-2xl p-5">
-            <p className="font-semibold">Does extra principal lower next month&apos;s bill?</p>
-            <p className="mt-2 opacity-80">No — the scheduled payment stays the same, but more of each future payment goes to principal and the loan ends sooner. Recasting is the exception that resets the payment.</p>
-          </div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Why did my monthly payment go up if I have a fixed rate?</summary><p className="mt-2 opacity-80">Your principal and interest are fixed, but escrow is not. Higher property taxes or insurance premiums raise the escrow slice. Check the annual escrow statement for the exact shortage and the new monthly amount.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How much of my payment goes to principal at first?</summary><p className="mt-2 opacity-80">Less than most people expect — often only 10 to 20 percent in year one on a 30-year loan. Extra principal payments early therefore cut total interest the most.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is it better to waive escrow?</summary><p className="mt-2 opacity-80">Some lenders allow it with enough equity and a fee, but you must then save for lump-sum tax and insurance bills yourself. Most first-time buyers do better with escrow.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does extra principal lower next month&apos;s bill?</summary><p className="mt-2 opacity-80">No — the scheduled payment stays the same, but more of each future payment goes to principal and the loan ends sooner. Recasting is the exception that resets the payment.</p></details>
         </div>
 
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -241,6 +238,9 @@ export default function MortgagePaymentGuide() {
           details.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Mortgage Payment Guide: Principal, Interest, Taxes & Insurance" description="Learn how mortgage payments work: principal and interest math, taxes, insurance, PMI, and HOA. Includes a worked $400,000 example and payment calculator." slug="mortgage-payment-guide" faqs={guideFaqs} />
     </div>
   );
 }

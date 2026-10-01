@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can I refinance just some loans?", "answer": "Yes — and often you should. Refinance high-rate private loans while leaving federal loans intact to preserve protections."}, {"question": "Does refinancing hurt my credit?", "answer": "Prequalification uses soft pulls. One hard inquiry at funding may dip scores a few points temporarily; on-time payments then help."}, {"question": "Can I refinance with a cosigner?", "answer": "Yes. A creditworthy cosigner can unlock approval or a lower rate. Prefer lenders with a clear cosigner-release path after 24–48 on-time payments."}, {"question": "What if I lose my job after refinancing?", "answer": "Private forbearance is limited — often months, not years. That is why emergency savings and stable income matter before giving up federal flexibility."}];
 
 export const metadata: Metadata = {
   title: "Student Loan Refinance Guide: When It Helps & When It Hurts",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Refinancing replaces one or more student loans with a new private loan at a new rate and term. Done right, it lowers the rate, simplifies payments, or shortens payoff. Done wrong, it strips federal safety nets — income-driven repayment, forgiveness paths, and generous deferment — that private lenders do not match. Federal loans and private loans therefore follow different rules: refinancing private loans is usually pure math, while refinancing federal loans trades protections for price. This guide shows who benefits, who should wait, and the exact savings on a $45,000 example.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Federal vs private: the decisive split</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -51,17 +58,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Rate context as of autumn 2026: private refinance rates for excellent credit were advertised from roughly the 4s (variable) and 5s (fixed), while federal Direct rates for new academic-year loans remained Congressionally fixed — check the current federal rate schedule before comparing. Treat advertised minimums as best-case; your offer reflects credit, income, degree, and term.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I refinance just some loans?</p><p className="mt-2 opacity-80">Yes — and often you should. Refinance high-rate private loans while leaving federal loans intact to preserve protections.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does refinancing hurt my credit?</p><p className="mt-2 opacity-80">Prequalification uses soft pulls. One hard inquiry at funding may dip scores a few points temporarily; on-time payments then help.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I refinance with a cosigner?</p><p className="mt-2 opacity-80">Yes. A creditworthy cosigner can unlock approval or a lower rate. Prefer lenders with a clear cosigner-release path after 24–48 on-time payments.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What if I lose my job after refinancing?</p><p className="mt-2 opacity-80">Private forbearance is limited — often months, not years. That is why emergency savings and stable income matter before giving up federal flexibility.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance just some loans?</summary><p className="mt-2 opacity-80">Yes — and often you should. Refinance high-rate private loans while leaving federal loans intact to preserve protections.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does refinancing hurt my credit?</summary><p className="mt-2 opacity-80">Prequalification uses soft pulls. One hard inquiry at funding may dip scores a few points temporarily; on-time payments then help.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance with a cosigner?</summary><p className="mt-2 opacity-80">Yes. A creditworthy cosigner can unlock approval or a lower rate. Prefer lenders with a clear cosigner-release path after 24–48 on-time payments.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if I lose my job after refinancing?</summary><p className="mt-2 opacity-80">Private forbearance is limited — often months, not years. That is why emergency savings and stable income matter before giving up federal flexibility.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Program rules change; verify forgiveness and IDR terms with official sources before refinancing federal loans. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Student Loan Refinance Guide: When It Helps & When It Hurts" description="Should you refinance student loans? Federal vs private tradeoffs, rate math, eligibility, and a $45,000 worked example. Plain-English 2026 guide." slug="student-loan-refinance-guide" faqs={guideFaqs} />
     </div>
   );
 }

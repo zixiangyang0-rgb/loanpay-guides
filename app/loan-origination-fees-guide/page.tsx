@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Are origination fees tax-deductible?", "answer": "Points that are prepaid interest may be, subject to itemizing and program rules; flat lender fees generally are not. Ask a tax professional."}, {"question": "Can fees be waived entirely?", "answer": "Sometimes reduced or offset by credits, rarely eliminated free — margin moves to the rate. Compare all-in cost, not fee labels."}, {"question": "Do bigger loans pay higher fees?", "answer": "Percentage fees scale with size; flats do not. Jumbo Section A often runs higher with deeper negotiation room."}, {"question": "What are discount vs origination points?", "answer": "Discount points buy rate; origination points are lender compensation. Both appear in Section A — add them together when comparing."}];
 
 export const metadata: Metadata = {
   title: "Loan Origination Fees Guide: What Lenders Charge & Why",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Origination fees are what the lender charges for creating the loan — distinct from third-party title, appraisal, and government costs. They appear as Section A on the Loan Estimate and take three forms: percentage points, flat underwriting or processing fees, or negative points (lender credits) that pay you toward closing for a higher rate. Because Section A is the part lenders control, it is the part you negotiate. Master it and you can compare any two offers in minutes.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Points, flats, and credits decoded</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -42,17 +49,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Email all lenders: &quot;Please quote $360,000, 30-year fixed, 10 percent down, 740 score, single-family primary, locking today, showing rate, points, Section A fees, lender credits, and cash to close on page one.&quot; Then ask the preferred lender to match the best Section A plus rate combination — competition between two finalists beats haggling with one. Question every duplicate or vague fee, confirm whether quotes include buydown or credit, and lock the winner in writing with the lock period covering appraisal and title. Re-check the Closing Disclosure against the Estimate; tolerance violations are the lender&apos;s problem to cure.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Are origination fees tax-deductible?</p><p className="mt-2 opacity-80">Points that are prepaid interest may be, subject to itemizing and program rules; flat lender fees generally are not. Ask a tax professional.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can fees be waived entirely?</p><p className="mt-2 opacity-80">Sometimes reduced or offset by credits, rarely eliminated free — margin moves to the rate. Compare all-in cost, not fee labels.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do bigger loans pay higher fees?</p><p className="mt-2 opacity-80">Percentage fees scale with size; flats do not. Jumbo Section A often runs higher with deeper negotiation room.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What are discount vs origination points?</p><p className="mt-2 opacity-80">Discount points buy rate; origination points are lender compensation. Both appear in Section A — add them together when comparing.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are origination fees tax-deductible?</summary><p className="mt-2 opacity-80">Points that are prepaid interest may be, subject to itemizing and program rules; flat lender fees generally are not. Ask a tax professional.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can fees be waived entirely?</summary><p className="mt-2 opacity-80">Sometimes reduced or offset by credits, rarely eliminated free — margin moves to the rate. Compare all-in cost, not fee labels.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do bigger loans pay higher fees?</summary><p className="mt-2 opacity-80">Percentage fees scale with size; flats do not. Jumbo Section A often runs higher with deeper negotiation room.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What are discount vs origination points?</summary><p className="mt-2 opacity-80">Discount points buy rate; origination points are lender compensation. Both appear in Section A — add them together when comparing.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Fee examples are illustrative. Compare official Loan Estimates and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Loan Origination Fees Guide: What Lenders Charge & Why" description="Origination fees explained: points vs flat fees vs lender credits, how to compare Loan Estimates, and a $360,000 shopping example." slug="loan-origination-fees-guide" faqs={guideFaqs} />
     </div>
   );
 }

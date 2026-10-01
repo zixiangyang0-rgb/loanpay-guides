@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
+import ConsentBanner from "./components/consent";
+import { OrgJsonLd } from "./components/schema";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -72,10 +74,27 @@ export default function RootLayout({
               ))}
             </nav>
           </div>
+          <div className="mx-auto w-full max-w-5xl px-6 pb-8 text-xs opacity-60">
+            <p>
+              We use cookies for site functions, measurement, and Google AdSense advertising. See our{" "}
+              <Link className="underline" href="/privacy-policy">
+                Privacy Policy
+              </Link>{" "}
+              for details and opt-out choices.
+            </p>
+          </div>
         </footer>
+        <ConsentBanner />
+        <OrgJsonLd />
+        {/* Google Funding Choices (CMP): consent message configured in the AdSense console for pub-4906207495792820 (EEA/UK + US). This tag loads the message choice framework. */}
+        <Script
+          id="funding-choices"
+          src="https://fundingchoicesmessages.google.com/i/pub-4906207495792820?ers=1"
+          strategy="afterInteractive"
+        />
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4906207495792820"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
       </body>

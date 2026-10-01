@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Should I save while paying debt?", "answer": "Yes — keep a small buffer ($500–$1,000) so emergencies skip the cards, then split extra dollars once high-rate debts clear. Without a buffer, every surprise restarts the cycle."}, {"question": "Does payoff order affect credit scores?", "answer": "Indirectly. Lowering utilization on individual cards helps scores; both methods do that over time. On-time payments matter most."}, {"question": "What about the debt snowflake?", "answer": "Snowflaking throws found money — rebates, side-gig cash — at the target between paychecks. It pairs well with either method."}, {"question": "When is consolidation better?", "answer": "When it lowers the weighted APR without lengthening payoff or adding fees, and you close or freeze the paid cards to avoid re-borrowing."}];
 
 export const metadata: Metadata = {
   title: "Debt Snowball vs Avalanche: Which Payoff Method Wins?",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           The snowball pays smallest balances first for quick wins; the avalanche pays highest rates first for lowest total cost. Mathematically the avalanche always costs less in interest, yet the snowball often wins in real life because early victories keep people going. The best method is the one you complete without new borrowing. This guide compares both with real numbers, shows when the gap is tiny versus huge, and offers a hybrid that captures most of each advantage.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How each method works</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -61,17 +68,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Avoid traps: cashing out retirement to pay cards (taxes plus lost compounding), serial balance transfers with 3–5 percent fees you never finish, and debt-settlement firms that tell you to stop paying. If minimums exceed roughly 40 percent of income or you use cards for essentials monthly, contact a nonprofit credit counselor (NFCC member) before the situation compounds. Free budgeting tools and payoff trackers on <a className="underline" href="https://loanpaylogic.com/loan-tools/">loanpaylogic.com loan tools</a> can structure the plan.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Should I save while paying debt?</p><p className="mt-2 opacity-80">Yes — keep a small buffer ($500–$1,000) so emergencies skip the cards, then split extra dollars once high-rate debts clear. Without a buffer, every surprise restarts the cycle.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does payoff order affect credit scores?</p><p className="mt-2 opacity-80">Indirectly. Lowering utilization on individual cards helps scores; both methods do that over time. On-time payments matter most.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What about the debt snowflake?</p><p className="mt-2 opacity-80">Snowflaking throws found money — rebates, side-gig cash — at the target between paychecks. It pairs well with either method.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">When is consolidation better?</p><p className="mt-2 opacity-80">When it lowers the weighted APR without lengthening payoff or adding fees, and you close or freeze the paid cards to avoid re-borrowing.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I save while paying debt?</summary><p className="mt-2 opacity-80">Yes — keep a small buffer ($500–$1,000) so emergencies skip the cards, then split extra dollars once high-rate debts clear. Without a buffer, every surprise restarts the cycle.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does payoff order affect credit scores?</summary><p className="mt-2 opacity-80">Indirectly. Lowering utilization on individual cards helps scores; both methods do that over time. On-time payments matter most.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What about the debt snowflake?</summary><p className="mt-2 opacity-80">Snowflaking throws found money — rebates, side-gig cash — at the target between paychecks. It pairs well with either method.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">When is consolidation better?</summary><p className="mt-2 opacity-80">When it lowers the weighted APR without lengthening payoff or adding fees, and you close or freeze the paid cards to avoid re-borrowing.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Interest figures are estimates for illustration. Build your order with realistic minimums and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Debt Snowball vs Avalanche: Which Payoff Method Wins?" description="Debt snowball vs avalanche compared with math, psychology, a $18,000 multi-card example, and a hybrid plan. Includes comparison table and FAQ." slug="debt-snowball-vs-avalanche" faqs={guideFaqs} />
     </div>
   );
 }

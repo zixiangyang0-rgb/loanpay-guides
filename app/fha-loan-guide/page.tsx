@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Can I cancel FHA MIP at 20% equity?", "answer": "Not on loans from mid-2013 onward with less than 10% down — MIP lasts for life. You must refinance to conventional, sell, or pay off. With 10%+ down it ends after 11 years."}, {"question": "Can I use FHA for an investment property?", "answer": "No — primary residence only. You may buy a 2–4 unit property with FHA if you live in one unit."}, {"question": "Do sellers dislike FHA offers?", "answer": "Sometimes, due to appraisal repair conditions and timelines. A strong preapproval and flexible terms help compete."}, {"question": "What credit score do I really need?", "answer": "Program minimums start at 500–580, but most lenders require 580–620. Higher scores earn better rates and more approvals."}];
 
 export const metadata: Metadata = {
   title: "FHA Loan Guide 2026: Limits, MIP & Who Should Apply",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           FHA loans insured by the Federal Housing Administration open homeownership with 3.5 percent down and credit scores from 580 — or 10 percent down with scores from 500 to 579 under program rules. The tradeoff is mortgage insurance on every loan: 1.75 percent upfront plus annual premiums that last 11 years or the life of the loan depending on your down payment. For 2026, FHA floor and ceiling limits are $541,287 and $1,249,125 for one-unit homes in most states. This guide explains who FHA fits, what it costs, and how it compares.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Eligibility and 2026 limits</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           FHA appraisals check health and safety — peeling paint in pre-1978 homes, missing handrails, roof life — and can require repairs before closing, which complicates fixer purchases. Sellers sometimes prefer conventional offers for that reason. Closing costs mirror conventional plus the upfront MIP. Two clean exits exist: refinance to conventional once you reach 20 percent equity and strong credit to drop insurance entirely, or sell. FHA streamline refinances offer low-doc rate drops when rates fall, with reduced paperwork but a new MIP clock. As of late September 2026, FHA 30-year averages were reported near the mid-6s, modestly below conventional averages — helpful, but MIP narrows the net edge.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I cancel FHA MIP at 20% equity?</p><p className="mt-2 opacity-80">Not on loans from mid-2013 onward with less than 10% down — MIP lasts for life. You must refinance to conventional, sell, or pay off. With 10%+ down it ends after 11 years.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I use FHA for an investment property?</p><p className="mt-2 opacity-80">No — primary residence only. You may buy a 2–4 unit property with FHA if you live in one unit.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Do sellers dislike FHA offers?</p><p className="mt-2 opacity-80">Sometimes, due to appraisal repair conditions and timelines. A strong preapproval and flexible terms help compete.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What credit score do I really need?</p><p className="mt-2 opacity-80">Program minimums start at 500–580, but most lenders require 580–620. Higher scores earn better rates and more approvals.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I cancel FHA MIP at 20% equity?</summary><p className="mt-2 opacity-80">Not on loans from mid-2013 onward with less than 10% down — MIP lasts for life. You must refinance to conventional, sell, or pay off. With 10%+ down it ends after 11 years.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I use FHA for an investment property?</summary><p className="mt-2 opacity-80">No — primary residence only. You may buy a 2–4 unit property with FHA if you live in one unit.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do sellers dislike FHA offers?</summary><p className="mt-2 opacity-80">Sometimes, due to appraisal repair conditions and timelines. A strong preapproval and flexible terms help compete.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What credit score do I really need?</summary><p className="mt-2 opacity-80">Program minimums start at 500–580, but most lenders require 580–620. Higher scores earn better rates and more approvals.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. FHA limits and MIP figures reflect 2026 publications as of October 2026; verify your county and case rules with HUD or your lender. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="FHA Loan Guide 2026: Limits, MIP & Who Should Apply" description="FHA loans in 2026: 3.5% down rules, $541,287 floor and $1,249,125 ceiling, upfront and annual MIP, credit standards, and a worked example." slug="fha-loan-guide" faqs={guideFaqs} />
     </div>
   );
 }

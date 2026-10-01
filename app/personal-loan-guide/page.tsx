@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Will a personal loan help my credit?", "answer": "Paying down cards with a loan can lower utilization and help scores, but the new inquiry and account slightly offset it at first. On-time installments then build history."}, {"question": "Can I pay it off early?", "answer": "Usually yes with no penalty at mainstream lenders. Confirm before signing; some specialty lenders still charge."}, {"question": "How fast is funding?", "answer": "Often one to three business days after approval, sometimes same-day. Speed is convenient — do not let it rush your comparison."}, {"question": "What beats a personal loan for emergencies?", "answer": "An emergency fund first, then low-cost options like payment plans, community aid, or a 0% card you will clear. See our payday-alternatives guide."}];
 
 export const metadata: Metadata = {
   title: "Personal Loan Guide: Costs, Uses & Smarter Alternatives",
@@ -18,7 +22,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A personal loan delivers a lump sum you repay in fixed installments, usually over two to seven years, with no collateral. Approval hinges on credit, income, and debt-to-income rather than an asset. That speed and simplicity make personal loans useful for consolidation or one-time needs — and dangerous for recurring shortfalls. Rates span roughly 7 percent for excellent credit to above 30 percent for weak credit as of 2026, plus origination fees up to about 10 percent. This guide shows how to judge an offer, when to use one, and what to do instead.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How pricing really works</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -47,17 +54,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Prequalify with soft pulls at two to three lenders — banks, credit unions, and reputable online lenders — then compare APR (not rate), fee, monthly payment, term, and total cost. Credit unions frequently beat online rates for fair-credit borrowers. Avoid lenders guaranteeing approval, demanding upfront gift-card payments, or pushing credit insurance add-ons. Read the late, NSF, and deferment terms. Borrow the minimum that solves the problem, choose the shortest term whose payment fits with savings intact, and automate payments from payday. If denied, ask for the specific reasons, address utilization and errors, and retry rather than stacking hard inquiries across ten lenders.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Will a personal loan help my credit?</p><p className="mt-2 opacity-80">Paying down cards with a loan can lower utilization and help scores, but the new inquiry and account slightly offset it at first. On-time installments then build history.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Can I pay it off early?</p><p className="mt-2 opacity-80">Usually yes with no penalty at mainstream lenders. Confirm before signing; some specialty lenders still charge.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How fast is funding?</p><p className="mt-2 opacity-80">Often one to three business days after approval, sometimes same-day. Speed is convenient — do not let it rush your comparison.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What beats a personal loan for emergencies?</p><p className="mt-2 opacity-80">An emergency fund first, then low-cost options like payment plans, community aid, or a 0% card you will clear. See our payday-alternatives guide.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will a personal loan help my credit?</summary><p className="mt-2 opacity-80">Paying down cards with a loan can lower utilization and help scores, but the new inquiry and account slightly offset it at first. On-time installments then build history.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I pay it off early?</summary><p className="mt-2 opacity-80">Usually yes with no penalty at mainstream lenders. Confirm before signing; some specialty lenders still charge.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How fast is funding?</summary><p className="mt-2 opacity-80">Often one to three business days after approval, sometimes same-day. Speed is convenient — do not let it rush your comparison.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What beats a personal loan for emergencies?</summary><p className="mt-2 opacity-80">An emergency fund first, then low-cost options like payment plans, community aid, or a 0% card you will clear. See our payday-alternatives guide.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. APR examples are as-of estimates. Compare total costs and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="Personal Loan Guide: Costs, Uses & Smarter Alternatives" description="How personal loans work: APRs, origination fees, terms, good vs bad uses, and a $12,000 consolidation example with comparison table." slug="personal-loan-guide" faqs={guideFaqs} />
     </div>
   );
 }

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AffordCalc from "./calculator";
+import AdSlot from "../components/AdSlot";
+import { Byline, GuideSchema } from "../components/schema";
+
+const guideFaqs: { question: string; answer: string }[] = [{"question": "Should I use gross or take-home pay?", "answer": "Lenders use gross; your personal budget should use take-home after taxes, retirement, and health costs. Run both and honor the lower answer."}, {"question": "Does preapproval equal affordability?", "answer": "No. Preapproval states a maximum based on lender risk, not your comfort with repairs, childcare, or savings goals. Treat it as a cap."}, {"question": "How do two incomes change the math?", "answer": "Consider whether you could carry the payment on one income if needed. Many couples buy on the lower or more stable income for resilience."}, {"question": "What if I am self-employed?", "answer": "Lenders average one to two years of adjusted net income, which often trails gross revenue. Keep clean books and larger reserves."}];
 
 export const metadata: Metadata = {
   title: "How Much House Can I Afford? Rules, Math & Examples",
@@ -19,7 +23,10 @@ export default function Page() {
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Affordability is not the maximum a lender will approve — it is the price you can carry comfortably through job changes, repairs, and rising taxes. Lenders anchor on your debt-to-income ratio, but your real budget must also cover maintenance, utilities, commuting, childcare, and savings. This guide shows the classic 28/36 guideline, translates income into a price range at today&apos;s rates, and works a complete example for a $120,000 household income so you can adapt it to your own numbers.
         </p>
+              <Byline />
       </section>
+
+      <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
       <article className="glass-panel rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The 28/36 rule and DTI</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -53,17 +60,22 @@ export default function Page() {
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Budget 1 to 2 percent of the home&apos;s value yearly for maintenance — more for older homes — plus higher utilities, furnishings, and commuting changes. Get insurance quotes before offering in coastal, wildfire, or hail zones where premiums can double the estimate. Ask for the HOA budget, reserve study, and pending assessments on condos. Keep three to six months of total housing costs liquid after closing rather than draining every dollar to the down payment. A slightly smaller home with reserves beats a maxed-out purchase that breaks at the first roof leak.
         </p>
-        <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
+        <AdSlot format="display" slot="TODO-guides-display-2" label="Mid-article display ad" />
+
+                <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Should I use gross or take-home pay?</p><p className="mt-2 opacity-80">Lenders use gross; your personal budget should use take-home after taxes, retirement, and health costs. Run both and honor the lower answer.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">Does preapproval equal affordability?</p><p className="mt-2 opacity-80">No. Preapproval states a maximum based on lender risk, not your comfort with repairs, childcare, or savings goals. Treat it as a cap.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">How do two incomes change the math?</p><p className="mt-2 opacity-80">Consider whether you could carry the payment on one income if needed. Many couples buy on the lower or more stable income for resilience.</p></div>
-          <div className="glass-card rounded-2xl p-5"><p className="font-semibold">What if I am self-employed?</p><p className="mt-2 opacity-80">Lenders average one to two years of adjusted net income, which often trails gross revenue. Keep clean books and larger reserves.</p></div>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I use gross or take-home pay?</summary><p className="mt-2 opacity-80">Lenders use gross; your personal budget should use take-home after taxes, retirement, and health costs. Run both and honor the lower answer.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does preapproval equal affordability?</summary><p className="mt-2 opacity-80">No. Preapproval states a maximum based on lender risk, not your comfort with repairs, childcare, or savings goals. Treat it as a cap.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How do two incomes change the math?</summary><p className="mt-2 opacity-80">Consider whether you could carry the payment on one income if needed. Many couples buy on the lower or more stable income for resilience.</p></details>
+          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if I am self-employed?</summary><p className="mt-2 opacity-80">Lenders average one to two years of adjusted net income, which often trails gross revenue. Keep clean books and larger reserves.</p></details>
         </div>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Income examples are illustrations. Estimate your range with the <a className="underline" href="https://loanpaylogic.com/affordability-calculator/">loanpaylogic.com affordability calculator</a> and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
       </article>
+
+      <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
+      <GuideSchema title="How Much House Can I Afford? Rules, Math & Examples" description="How much house can you afford? Learn the 28/36 rule, DTI math, down payment effects, and a worked $120,000-income example with an interactive estimator." slug="how-much-house-can-i-afford" faqs={guideFaqs} />
     </div>
   );
 }
