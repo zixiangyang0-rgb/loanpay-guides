@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     description:
       "Clear, educational guides on mortgages, saving, investing basics, shipping math, and everyday money decisions.",
   },
+  other: {
+    "google-adsense-account": "ca-pub-4906207495792820",
+  },
 };
 
 const navLinks = [
@@ -75,6 +78,14 @@ export default function RootLayout({
             </nav>
           </div>
           <div className="mx-auto w-full max-w-5xl px-6 pb-8 text-xs opacity-60">
+            <p className="mb-2">
+              LoanPay Logic Network:{" "}
+              <a className="underline" href="https://loanpaylogic.com">Mortgage &amp; Loan Calculators</a>{" "}
+              · <a className="underline" href="https://tax.loanpaylogic.com">Tax Guides</a>{" "}
+              · <a className="underline" href="https://credit.loanpaylogic.com">Credit &amp; Cards</a>{" "}
+              · <a className="underline" href="https://retire.loanpaylogic.com">Retirement</a>{" "}
+              · <a className="underline" href="https://save.loanpaylogic.com">Savings</a>
+            </p>
             <p>
               We use cookies for site functions, measurement, and Google AdSense advertising. See our{" "}
               <Link className="underline" href="/privacy-policy">
