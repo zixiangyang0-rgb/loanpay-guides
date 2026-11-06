@@ -75,6 +75,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do biweekly payments change amortization?</summary><p className="mt-2 opacity-80">Yes — 26 half-payments equal 13 full payments a year, adding one extra payment annually that cuts years and interest. See our biweekly guide for the math.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get my amortization schedule free?</summary><p className="mt-2 opacity-80">Yes. Your servicer, lender, or the loanpaylogic.com calculators can generate one. Keep a copy with your closing documents.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+              </li>
+              <li>
+                <Link className="underline" href="/biweekly-mortgage-payments">Biweekly Mortgage Payments</Link> — how one extra payment a year shortens your loan.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-points-guide">Mortgage Points Guide</Link> — whether buying down your rate with points pays back.
+              </li>
+              <li>
+                <Link className="underline" href="/apr-vs-apy-guide">APR vs APY Guide</Link> — how to compare true borrowing costs across offers.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Amortization examples are simplified illustrations. Compare scenarios with the <a className="underline" href="https://loanpaylogic.com/mortgage-calculator/">loanpaylogic.com mortgage calculator</a>, and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

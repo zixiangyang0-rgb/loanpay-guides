@@ -63,6 +63,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I pay collections before applying?</summary><p className="mt-2 opacity-80">Ask your loan officer first. Some programs require resolution; indiscriminate payoff can reset dates or drain reserves. Strategy matters.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get a mortgage after bankruptcy?</summary><p className="mt-2 opacity-80">Often yes after seasoning — roughly 2 years for FHA/VA Chapter 7 and 4 for conventional, with re-established credit. Confirm current waiting periods.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/debt-to-income-ratio-guide">Debt-to-Income Ratio Guide</Link> — how lenders measure DTI, and the caps by program.
+              </li>
+              <li>
+                <Link className="underline" href="/preapproval-vs-prequalification">Preapproval vs Prequalification</Link> — what a preapproval proves that a prequalification does not.
+              </li>
+              <li>
+                <Link className="underline" href="/fha-loan-guide">FHA Loan Guide</Link> — low-down-payment FHA rules, MIP, and loan limits.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-points-guide">Mortgage Points Guide</Link> — whether buying down your rate with points pays back.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Scoring models and lender overlays vary. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

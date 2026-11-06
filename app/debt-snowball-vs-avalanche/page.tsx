@@ -77,6 +77,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What about the debt snowflake?</summary><p className="mt-2 opacity-80">Snowflaking throws found money — rebates, side-gig cash — at the target between paychecks. It pairs well with either method.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">When is consolidation better?</summary><p className="mt-2 opacity-80">When it lowers the weighted APR without lengthening payoff or adding fees, and you close or freeze the paid cards to avoid re-borrowing.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/emergency-fund-vs-debt-payoff">Emergency Fund vs Debt Payoff</Link> — how to split cash between a buffer and extra payments.
+              </li>
+              <li>
+                <Link className="underline" href="/personal-loan-guide">Personal Loan Guide</Link> — how unsecured loans price risk without collateral.
+              </li>
+              <li>
+                <Link className="underline" href="/payday-loan-alternatives">Payday Loan Alternatives</Link> — cheaper options than payday loans in a cash crunch.
+              </li>
+              <li>
+                <Link className="underline" href="/debt-to-income-ratio-guide">Debt-to-Income Ratio Guide</Link> — how lenders measure DTI, and the caps by program.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Interest figures are estimates for illustration. Build your order with realistic minimums and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

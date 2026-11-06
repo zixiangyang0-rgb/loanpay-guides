@@ -59,6 +59,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will cash-out affect my rate?</summary><p className="mt-2 opacity-80">Yes — expect a premium over no-cash refinances, plus possible loan-level adjustments for LTV and credit.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if values fall after?</summary><p className="mt-2 opacity-80">You owe the larger balance on a smaller cushion, limiting future refinance or sale options. Borrow well under the max to keep margin.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/mortgage-refinance-guide">Mortgage Refinance Guide</Link> — when refinancing lowers cost, and when it backfires.
+              </li>
+              <li>
+                <Link className="underline" href="/heloc-explained">HELOC Explained</Link> — how draw periods, variable rates, and lien risk work.
+              </li>
+              <li>
+                <Link className="underline" href="/home-equity-loan-vs-heloc">Home Equity Loan vs HELOC</Link> — lump-sum loan versus revolving line for home equity.
+              </li>
+              <li>
+                <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Limits and pricing vary by program and market. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

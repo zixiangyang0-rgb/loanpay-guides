@@ -59,6 +59,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What DTI should I target personally?</summary><p className="mt-2 opacity-80">Many planners suggest housing under 25–28% of take-home and all debts under 36%, with savings intact — tighter than lender maximums for good reason.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can rental income help DTI?</summary><p className="mt-2 opacity-80">Yes, usually at ~75% of documented rent with history and leases, offsetting the rental property&apos;s payment. Rules vary by program.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/how-much-house-can-i-afford">How Much House Can I Afford</Link> — how lenders size your home budget from income.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+              <li>
+                <Link className="underline" href="/preapproval-vs-prequalification">Preapproval vs Prequalification</Link> — what a preapproval proves that a prequalification does not.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Program caps and counting rules vary; confirm with your lender&apos;s underwriting. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

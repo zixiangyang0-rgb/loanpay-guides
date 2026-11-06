@@ -61,6 +61,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I do this on an ARM?</summary><p className="mt-2 opacity-80">Yes — extra principal helps any amortizing loan. On ARMs it also shrinks the balance subject to future resets.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I refinance instead?</summary><p className="mt-2 opacity-80">Different goals: biweekly cuts term at your current rate for free; refinancing cuts rate (with costs). They combine well when rates have fallen.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/amortization-schedule-explained">Amortization Schedule Explained</Link> — why early payments go mostly to interest.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-refinance-guide">Mortgage Refinance Guide</Link> — when refinancing lowers cost, and when it backfires.
+              </li>
+              <li>
+                <Link className="underline" href="/emergency-fund-vs-debt-payoff">Emergency Fund vs Debt Payoff</Link> — how to split cash between a buffer and extra payments.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Savings figures are estimates. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

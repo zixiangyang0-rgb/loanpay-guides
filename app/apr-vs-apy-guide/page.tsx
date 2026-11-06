@@ -74,6 +74,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Why is APY higher than the stated rate?</summary><p className="mt-2 opacity-80">Because compounding lets interest earn interest. More frequent compounding raises APY slightly at the same nominal rate.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Which matters more for a mortgage: rate or APR?</summary><p className="mt-2 opacity-80">Both. The rate sets your payment; the APR helps you compare fee-loaded offers. Add your expected hold time to decide.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/mortgage-points-guide">Mortgage Points Guide</Link> — whether buying down your rate with points pays back.
+              </li>
+              <li>
+                <Link className="underline" href="/loan-origination-fees-guide">Loan Origination Fees Guide</Link> — what origination charges cover and how to compare them.
+              </li>
+              <li>
+                <Link className="underline" href="/fixed-vs-adjustable-mortgage">Fixed vs Adjustable Mortgage</Link> — when a fixed rate beats an ARM, and vice versa.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Rates and fees vary by lender and change frequently. Compare current offers and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

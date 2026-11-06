@@ -62,6 +62,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does cosigning affect my mortgage?</summary><p className="mt-2 opacity-80">Yes. The payment counts in your DTI unless the borrower documents 12 months of solo payments from their own funds (rules vary by program).</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if the borrower dies or defaults?</summary><p className="mt-2 opacity-80">The cosigner owes the balance; some student lenders offer death discharge, many auto and personal lenders do not. Check the clause.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/student-loan-refinance-guide">Student Loan Refinance Guide</Link> — when refinancing student loans pays off.
+              </li>
+              <li>
+                <Link className="underline" href="/auto-loan-guide">Auto Loan Guide</Link> — how auto financing, terms, and trade-ins work.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+              <li>
+                <Link className="underline" href="/personal-loan-guide">Personal Loan Guide</Link> — how unsecured loans price risk without collateral.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Guaranty terms vary by lender and state. Read every clause and our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

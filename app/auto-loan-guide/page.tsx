@@ -66,6 +66,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I pay extra on an auto loan?</summary><p className="mt-2 opacity-80">Usually yes — simple interest means extra principal immediately cuts future interest. Confirm no prepayment penalty and that extras apply to principal.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">New, used, or certified?</summary><p className="mt-2 opacity-80">A two- to three-year-old reliable model often balances depreciation and repair risk. Certified adds warranty at a price premium worth comparing.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/cosigner-loan-guide">Cosigner Loan Guide</Link> — what cosigning risks for borrower and cosigner alike.
+              </li>
+              <li>
+                <Link className="underline" href="/personal-loan-guide">Personal Loan Guide</Link> — how unsecured loans price risk without collateral.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+              <li>
+                <Link className="underline" href="/debt-to-income-ratio-guide">Debt-to-Income Ratio Guide</Link> — how lenders measure DTI, and the caps by program.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Rate ranges are as-of estimates. Get preapproved, compare total cost, and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
