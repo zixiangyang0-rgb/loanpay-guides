@@ -80,6 +80,9 @@ export default function Page() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB home-equity guidance</a> comparing loans and lines, <a className="underline" href="https://www.hud.gov/buying">HUD home-equity resources</a>, and <a className="underline" href="https://www.fhfa.gov/">FHFA housing data</a>.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Examples are estimates. Compare live terms and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

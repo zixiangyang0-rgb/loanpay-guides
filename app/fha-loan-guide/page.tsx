@@ -80,6 +80,9 @@ export default function Page() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.hud.gov/program_offices/housing/sfh/ins">HUD FHA loan requirements</a> for limits, MIP, and county lookups, and the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB FHA guidance</a> for borrower rights.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. FHA limits and MIP figures reflect 2026 publications as of October 2026; verify your county and case rules with HUD or your lender. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

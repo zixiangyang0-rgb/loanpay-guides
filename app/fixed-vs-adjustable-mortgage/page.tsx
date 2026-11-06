@@ -87,6 +87,9 @@ export default function Page() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB adjustable-rate mortgage guidance</a> on caps and reset risk, and <a className="underline" href="https://www.fhfa.gov/">FHFA conforming-limit data</a> for 2026 loan sizes.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Rate examples are as-of illustrations. Compare live quotes with the <a className="underline" href="https://loanpaylogic.com/mortgage-comparison-calculator/">loanpaylogic.com comparison calculator</a> and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
