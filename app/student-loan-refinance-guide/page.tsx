@@ -84,6 +84,9 @@ export default function Page() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> <a className="underline" href="https://studentaid.gov/">Federal Student Aid repayment options</a> before giving up federal protections, the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/">CFPB student-loan guidance</a>, and <a className="underline" href="https://www.irs.gov/">IRS student-loan interest deduction rules</a>.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Program rules change; verify forgiveness and IDR terms with official sources before refinancing federal loans. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

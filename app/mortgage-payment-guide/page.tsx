@@ -244,6 +244,9 @@ export default function MortgagePaymentGuide() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB mortgage-payment guidance</a> on PITI and Loan Estimates, <a className="underline" href="https://www.hud.gov/buying">HUD homebuying resources</a>, and <a className="underline" href="https://www.fhfa.gov/">FHFA housing data</a>.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Housing
           costs vary by state, lender, and insurer. Review your Loan Estimate

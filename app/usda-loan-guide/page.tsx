@@ -80,6 +80,9 @@ export default function Page() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.rd.usda.gov/">USDA Rural Development home loans</a> portal for maps and income limits, and the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB mortgage guidance</a> for borrower rights.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. USDA maps, income limits, and fees update annually; verify the address and current fee schedule before offering. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

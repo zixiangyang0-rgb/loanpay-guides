@@ -77,6 +77,9 @@ export default function Page() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/">CFPB payday-loan resources</a> on costs and borrower rights, and <a className="underline" href="https://consumer.ftc.gov/">FTC small-dollar credit advice</a> for cheaper options.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. State payday rules differ widely; check your regulator. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
