@@ -59,6 +59,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Who pays if the servicer misses a tax bill?</summary><p className="mt-2 opacity-80">The servicer must make it right and cover penalties from the error, but monitor bills yourself and keep confirmations.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does escrow earn interest?</summary><p className="mt-2 opacity-80">Depends on state law — some states require small interest payments to borrowers, most do not. Check your state and statement.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+              </li>
+              <li>
+                <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+              </li>
+              <li>
+                <Link className="underline" href="/pmi-removal-guide">PMI Removal Guide</Link> — how to drop PMI once you hold enough equity.
+              </li>
+              <li>
+                <Link className="underline" href="/loan-origination-fees-guide">Loan Origination Fees Guide</Link> — what origination charges cover and how to compare them.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Escrow rules follow RESPA and servicer guidelines; confirm figures on your annual statement. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

@@ -63,6 +63,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What counts as an emergency?</summary><p className="mt-2 opacity-80">Job loss, essential repairs, medical needs — not sales, travel, or gifts. Define it in writing before funding.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How do couples split this?</summary><p className="mt-2 opacity-80">One joint buffer sized on shared essentials, then joint high-rate payoff. Keep individual mini-buffers only if spending friction demands it.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/debt-snowball-vs-avalanche">Debt Snowball vs Avalanche</Link> — which payoff order saves more interest.
+              </li>
+              <li>
+                <Link className="underline" href="/personal-loan-guide">Personal Loan Guide</Link> — how unsecured loans price risk without collateral.
+              </li>
+              <li>
+                <Link className="underline" href="/payday-loan-alternatives">Payday Loan Alternatives</Link> — cheaper options than payday loans in a cash crunch.
+              </li>
+              <li>
+                <Link className="underline" href="/biweekly-mortgage-payments">Biweekly Mortgage Payments</Link> — how one extra payment a year shortens your loan.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. APY and rate figures are as-of estimates. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

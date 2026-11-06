@@ -227,6 +227,23 @@ export default function MortgagePaymentGuide() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does extra principal lower next month&apos;s bill?</summary><p className="mt-2 opacity-80">No — the scheduled payment stays the same, but more of each future payment goes to principal and the loan ends sooner. Recasting is the exception that resets the payment.</p></details>
         </div>
 
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/escrow-explained">Escrow Explained</Link> — how escrow collects taxes and insurance each month.
+              </li>
+              <li>
+                <Link className="underline" href="/amortization-schedule-explained">Amortization Schedule Explained</Link> — why early payments go mostly to interest.
+              </li>
+              <li>
+                <Link className="underline" href="/pmi-removal-guide">PMI Removal Guide</Link> — how to drop PMI once you hold enough equity.
+              </li>
+              <li>
+                <Link className="underline" href="/biweekly-mortgage-payments">Biweekly Mortgage Payments</Link> — how one extra payment a year shortens your loan.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Housing
           costs vary by state, lender, and insurer. Review your Loan Estimate

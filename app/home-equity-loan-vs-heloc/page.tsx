@@ -63,6 +63,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I lock a HELOC rate?</summary><p className="mt-2 opacity-80">Many lenders offer fixed-rate lock options on drawn portions for a fee or spread. Ask about minimum lock amounts and whether new draws remain variable.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if home values fall?</summary><p className="mt-2 opacity-80">Lenders can freeze HELOC draws and both products leave you owing on a smaller equity cushion. Borrow well below the maximum to keep margin.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/heloc-explained">HELOC Explained</Link> — how draw periods, variable rates, and lien risk work.
+              </li>
+              <li>
+                <Link className="underline" href="/cash-out-refinance-guide">Cash-Out Refinance Guide</Link> — how cash-out refis compare with HELOCs and second liens.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-refinance-guide">Mortgage Refinance Guide</Link> — when refinancing lowers cost, and when it backfires.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Examples are estimates. Compare live terms and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

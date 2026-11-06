@@ -63,6 +63,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do sellers dislike FHA offers?</summary><p className="mt-2 opacity-80">Sometimes, due to appraisal repair conditions and timelines. A strong preapproval and flexible terms help compete.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What credit score do I really need?</summary><p className="mt-2 opacity-80">Program minimums start at 500–580, but most lenders require 580–620. Higher scores earn better rates and more approvals.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/pmi-removal-guide">PMI Removal Guide</Link> — how to drop PMI once you hold enough equity.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+              <li>
+                <Link className="underline" href="/debt-to-income-ratio-guide">Debt-to-Income Ratio Guide</Link> — how lenders measure DTI, and the caps by program.
+              </li>
+              <li>
+                <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. FHA limits and MIP figures reflect 2026 publications as of October 2026; verify your county and case rules with HUD or your lender. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

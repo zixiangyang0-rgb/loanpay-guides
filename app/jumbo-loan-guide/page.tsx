@@ -63,6 +63,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do jumbo loans allow PMI?</summary><p className="mt-2 opacity-80">Rarely below 10–15% down, and most lenders simply require 10–20% down instead. Lender-paid structures exist at higher rates.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance jumbo to conforming later?</summary><p className="mt-2 opacity-80">Yes, if paydown or appreciation brings the balance under the county limit and you meet conventional standards — a common plan after bonuses or equity growth.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/mortgage-points-guide">Mortgage Points Guide</Link> — whether buying down your rate with points pays back.
+              </li>
+              <li>
+                <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+              </li>
+              <li>
+                <Link className="underline" href="/debt-to-income-ratio-guide">Debt-to-Income Ratio Guide</Link> — how lenders measure DTI, and the caps by program.
+              </li>
+              <li>
+                <Link className="underline" href="/fixed-vs-adjustable-mortgage">Fixed vs Adjustable Mortgage</Link> — when a fixed rate beats an ARM, and vice versa.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. County limits and jumbo guidelines vary; verify 2026 FHFA values for your county. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

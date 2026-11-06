@@ -66,6 +66,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What happens at the end of the draw?</summary><p className="mt-2 opacity-80">The line closes to new draws and the balance amortizes. Payments usually rise. Some lenders offer renewal or refinance; underwrite as if they will not.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">HELOC or home-equity loan?</summary><p className="mt-2 opacity-80">HELOC for phased or uncertain draws; fixed loan for a known lump sum where payment certainty matters. See our dedicated comparison guide.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/home-equity-loan-vs-heloc">Home Equity Loan vs HELOC</Link> — lump-sum loan versus revolving line for home equity.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+              </li>
+              <li>
+                <Link className="underline" href="/cash-out-refinance-guide">Cash-Out Refinance Guide</Link> — how cash-out refis compare with HELOCs and second liens.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-refinance-guide">Mortgage Refinance Guide</Link> — when refinancing lowers cost, and when it backfires.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. HELOC terms vary widely. Compare fixed and variable paths and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

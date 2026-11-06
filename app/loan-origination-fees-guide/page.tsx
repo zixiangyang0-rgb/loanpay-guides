@@ -58,6 +58,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do bigger loans pay higher fees?</summary><p className="mt-2 opacity-80">Percentage fees scale with size; flats do not. Jumbo Section A often runs higher with deeper negotiation room.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What are discount vs origination points?</summary><p className="mt-2 opacity-80">Discount points buy rate; origination points are lender compensation. Both appear in Section A — add them together when comparing.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+              </li>
+              <li>
+                <Link className="underline" href="/apr-vs-apy-guide">APR vs APY Guide</Link> — how to compare true borrowing costs across offers.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-points-guide">Mortgage Points Guide</Link> — whether buying down your rate with points pays back.
+              </li>
+              <li>
+                <Link className="underline" href="/escrow-explained">Escrow Explained</Link> — how escrow collects taxes and insurance each month.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Fee examples are illustrative. Compare official Loan Estimates and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

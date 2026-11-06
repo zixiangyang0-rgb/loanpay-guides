@@ -69,6 +69,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How do two incomes change the math?</summary><p className="mt-2 opacity-80">Consider whether you could carry the payment on one income if needed. Many couples buy on the lower or more stable income for resilience.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if I am self-employed?</summary><p className="mt-2 opacity-80">Lenders average one to two years of adjusted net income, which often trails gross revenue. Keep clean books and larger reserves.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/debt-to-income-ratio-guide">Debt-to-Income Ratio Guide</Link> — how lenders measure DTI, and the caps by program.
+              </li>
+              <li>
+                <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+              </li>
+              <li>
+                <Link className="underline" href="/preapproval-vs-prequalification">Preapproval vs Prequalification</Link> — what a preapproval proves that a prequalification does not.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Income examples are illustrations. Estimate your range with the <a className="underline" href="https://loanpaylogic.com/affordability-calculator/">loanpaylogic.com affordability calculator</a> and read our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
