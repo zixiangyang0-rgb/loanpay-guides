@@ -75,6 +75,9 @@ export default function Page() {
               </li>
           </ul>
         </nav>
+        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+          <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB mortgage rules</a> on ability-to-repay and qualified mortgages, and <a className="underline" href="https://www.fhfa.gov/">FHFA mortgage data</a> on conforming market standards.
+        </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. Balloon terms vary and QM rules limit availability. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>
