@@ -60,6 +60,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will asking billers hurt credit?</summary><p className="mt-2 opacity-80">Payment plans themselves rarely report; missing payments without a plan can. Always get the agreement noted on the account.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get help with food and utilities?</summary><p className="mt-2 opacity-80">Yes — SNAP, LIHEAP, local pantries, and 211 referrals help millions yearly. Benefits take days to weeks, so apply before crisis.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/personal-loan-guide">Personal Loan Guide</Link> — how unsecured loans price risk without collateral.
+              </li>
+              <li>
+                <Link className="underline" href="/emergency-fund-vs-debt-payoff">Emergency Fund vs Debt Payoff</Link> — how to split cash between a buffer and extra payments.
+              </li>
+              <li>
+                <Link className="underline" href="/debt-snowball-vs-avalanche">Debt Snowball vs Avalanche</Link> — which payoff order saves more interest.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. State payday rules differ widely; check your regulator. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

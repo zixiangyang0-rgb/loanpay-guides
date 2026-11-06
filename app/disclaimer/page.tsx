@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
@@ -30,6 +31,20 @@ export default function DisclaimerPage() {
         attorney. If you spot an error or outdated detail, contact us at
         support@loanpaylogic.com and we will review it promptly.
       </p>
+      <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <p className="text-sm font-semibold">Keep reading</p>
+        <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+          <li>
+            <Link className="underline" href="/mortgage-payment-guide">Mortgage Payment Guide</Link> — how principal, interest, taxes, and insurance combine into one bill.
+          </li>
+          <li>
+            <Link className="underline" href="/apr-vs-apy-guide">APR vs APY Guide</Link> — how to compare true borrowing costs across offers.
+          </li>
+          <li>
+            <Link className="underline" href="/debt-snowball-vs-avalanche">Debt Snowball vs Avalanche</Link> — which payoff order saves more interest.
+          </li>
+        </ul>
+      </nav>
     </article>
   );
 }

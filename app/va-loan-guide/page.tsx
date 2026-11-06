@@ -63,6 +63,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can a seller refuse a VA offer?</summary><p className="mt-2 opacity-80">Sellers cannot discriminate against veteran status, but they may weigh terms. Strong earnest money and flexible dates help compete.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is the funding fee ever waived?</summary><p className="mt-2 opacity-80">Yes — for 10%+ disability-rated veterans, some active-duty Purple Heart recipients, and qualifying surviving spouses. Check current VA tables.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/fha-loan-guide">FHA Loan Guide</Link> — low-down-payment FHA rules, MIP, and loan limits.
+              </li>
+              <li>
+                <Link className="underline" href="/usda-loan-guide">USDA Loan Guide</Link> — zero-down USDA rules for eligible rural areas.
+              </li>
+              <li>
+                <Link className="underline" href="/pmi-removal-guide">PMI Removal Guide</Link> — how to drop PMI once you hold enough equity.
+              </li>
+              <li>
+                <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. VA rules and fees update periodically; confirm COE and fee tables with the VA or your lender. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

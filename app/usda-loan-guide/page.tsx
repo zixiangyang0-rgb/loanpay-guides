@@ -63,6 +63,23 @@ export default function Page() {
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I refinance a USDA loan?</summary><p className="mt-2 opacity-80">Yes — USDA streamlined and non-streamlined refinances plus conventional refinance exits exist once equity and credit allow.</p></details>
           <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do I need perfect credit?</summary><p className="mt-2 opacity-80">No. Automated approvals favor 640-plus, but manual underwrites with strong rent history and reserves can succeed lower. Ask lenders about manual paths.</p></details>
         </div>
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="underline" href="/fha-loan-guide">FHA Loan Guide</Link> — low-down-payment FHA rules, MIP, and loan limits.
+              </li>
+              <li>
+                <Link className="underline" href="/va-loan-guide">VA Loan Guide</Link> — VA entitlement, funding fees, and zero-down rules.
+              </li>
+              <li>
+                <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+              </li>
+              <li>
+                <Link className="underline" href="/credit-score-mortgage-guide">Credit Score Mortgage Guide</Link> — which credit score unlocks which loan pricing.
+              </li>
+          </ul>
+        </nav>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           This article is general education, not financial advice. USDA maps, income limits, and fees update annually; verify the address and current fee schedule before offering. See our <Link className="underline" href="/disclaimer">disclaimer</Link>.
         </p>

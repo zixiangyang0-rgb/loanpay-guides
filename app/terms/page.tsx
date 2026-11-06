@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
@@ -46,6 +47,20 @@ export default function TermsPage() {
       <p className="mt-2 text-sm leading-relaxed opacity-80">
         For questions about these terms, email support@loanpaylogic.com.
       </p>
+      <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <p className="text-sm font-semibold">Keep reading</p>
+        <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+          <li>
+            <Link className="underline" href="/closing-costs-guide">Closing Costs Guide</Link> — which closing fees are negotiable and which are not.
+          </li>
+          <li>
+            <Link className="underline" href="/loan-origination-fees-guide">Loan Origination Fees Guide</Link> — what origination charges cover and how to compare them.
+          </li>
+          <li>
+            <Link className="underline" href="/cosigner-loan-guide">Cosigner Loan Guide</Link> — what cosigning risks for borrower and cosigner alike.
+          </li>
+        </ul>
+      </nav>
     </article>
   );
 }

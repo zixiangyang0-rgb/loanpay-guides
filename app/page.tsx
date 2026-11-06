@@ -256,7 +256,20 @@ export default function HomePage() {
           HUD, the VA, and the Federal Reserve, explain the numbers with
           worked examples, and link to matching loanpaylogic.com calculators
           so you can test your own figures. Bookmark this hub and work
-          through the sections most relevant to your next decision.
+          through the sections most relevant to your next decision. New to
+          mortgages? Start with our{" "}
+          <Link className="underline" href="/mortgage-payment-guide">
+            Mortgage Payment Guide
+          </Link>
+          , then learn{" "}
+          <Link className="underline" href="/escrow-explained">
+            how escrow works
+          </Link>{" "}
+          and{" "}
+          <Link className="underline" href="/amortization-schedule-explained">
+            how amortization front-loads interest
+          </Link>
+          .
         </p>
         <p className="mt-4 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
           <strong>Disclaimer note:</strong> Content on this site is for general
