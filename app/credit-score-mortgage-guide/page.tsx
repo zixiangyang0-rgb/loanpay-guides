@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Which score do lenders use?", "answer": "Usually the middle of your three mortgage FICO scores; joint applications generally use the lower middle score for pricing."}, {"question": "Will checking my own score hurt?", "answer": "No — self-checks are soft inquiries. Lender hard pulls for rate-shopping inside two weeks generally count as one."}, {"question": "Should I pay collections before applying?", "answer": "Ask your loan officer first. Some programs require resolution; indiscriminate payoff can reset dates or drain reserves. Strategy matters."}, {"question": "Can I get a mortgage after bankruptcy?", "answer": "Often yes after seasoning — roughly 2 years for FHA/VA Chapter 7 and 4 for conventional, with re-established credit. Confirm current waiting periods."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Mortgages · Credit</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Credit Score Mortgage Guide: Small Points, Big Dollars</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Mortgages · Credit</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Credit Score Mortgage Guide: Small Points, Big Dollars</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Mortgage lenders use your FICO scores — typically the middle of your three bureau mortgage scores — to approve you and price your rate. Crossing from 680 to 740 can save roughly 0.5 to 1 point in rate on conventional loans, worth tens of thousands over 30 years. Government programs forgive lower scores but still reward higher ones. This guide explains the tiers, what actually moves mortgage scores fast, and how to time applications around improvements.
@@ -26,12 +28,13 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Score tiers and what they unlock</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Conventional loans generally want 620 minimum, with meaningful pricing improvements at 680, 700, 720, and 740-plus. FHA technically allows 580 with 3.5 percent down and 500–579 with 10 percent down, though most lenders overlay 580–620. VA and USDA have no statutory minimums but lenders commonly require 580–640. Jumbo wants 700-plus. Beyond approval, loan-level price adjustments penalize lower scores and high LTVs combined: a 680 score at 95 percent LTV can cost 1-plus points more in fee-equivalent than 740 at 80 percent LTV — either as upfront cost or a higher rate. That stacking is why 20 percent down plus 740-plus credit is the pricing sweet spot.
         </p>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="credit-score-mortgage-guide ledger — Score tiers and what they unlock">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Score band</th><th className="py-3 pr-4">Conventional access</th><th className="py-3 pr-4">Illustrative 30-yr rate gap</th><th className="py-3">Priority</th></tr></thead>
             <tbody className="opacity-90">
@@ -43,6 +46,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Worked math: why 60 points matter</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           On a $350,000 loan, 7.25 percent versus 6.75 percent (illustrative half-point gap) means about $2,387 versus $2,270 monthly — $117 difference, or roughly $42,000 over 30 years, plus easier PMI and approval. Paying $6,000 in cards to lift utilization from 65 to 15 percent and gain those points can return multiples within two years. Conversely, opening three store cards for discounts before applying can shave 15–30 points and cost the tier. Protect the window: no new credit, no large financed purchases, no late payments, and no co-signing from three months before through closing.
@@ -58,12 +62,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Which score do lenders use?</summary><p className="mt-2 opacity-80">Usually the middle of your three mortgage FICO scores; joint applications generally use the lower middle score for pricing.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will checking my own score hurt?</summary><p className="mt-2 opacity-80">No — self-checks are soft inquiries. Lender hard pulls for rate-shopping inside two weeks generally count as one.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I pay collections before applying?</summary><p className="mt-2 opacity-80">Ask your loan officer first. Some programs require resolution; indiscriminate payoff can reset dates or drain reserves. Strategy matters.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get a mortgage after bankruptcy?</summary><p className="mt-2 opacity-80">Often yes after seasoning — roughly 2 years for FHA/VA Chapter 7 and 4 for conventional, with re-established credit. Confirm current waiting periods.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Which score do lenders use?</summary><p className="mt-2 opacity-80">Usually the middle of your three mortgage FICO scores; joint applications generally use the lower middle score for pricing.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will checking my own score hurt?</summary><p className="mt-2 opacity-80">No — self-checks are soft inquiries. Lender hard pulls for rate-shopping inside two weeks generally count as one.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I pay collections before applying?</summary><p className="mt-2 opacity-80">Ask your loan officer first. Some programs require resolution; indiscriminate payoff can reset dates or drain reserves. Strategy matters.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I get a mortgage after bankruptcy?</summary><p className="mt-2 opacity-80">Often yes after seasoning — roughly 2 years for FHA/VA Chapter 7 and 4 for conventional, with re-established credit. Confirm current waiting periods.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -80,7 +84,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/">CFPB credit-score resources</a> on how scores shape loan pricing, and <a className="underline" href="https://consumer.ftc.gov/">FTC advice on free credit reports</a> for monitoring your file.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -90,6 +94,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="Credit Score Mortgage Guide: Tiers, Rates & Fast Wins" description="How credit scores shape mortgage approval and pricing in 2026: score tiers, loan-level adjustments, rapid improvement steps, and rate-gap math." slug="credit-score-mortgage-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

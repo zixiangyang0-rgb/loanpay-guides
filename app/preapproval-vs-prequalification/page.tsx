@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Does preapproval guarantee the loan?", "answer": "No — it is conditional on appraisal, title, unchanged finances, and final underwriting. Treat it as highly likely, not certain."}, {"question": "Will multiple preapprovals hurt credit?", "answer": "Rate-shopping pulls within about two weeks generally count as one inquiry. Batch applications rather than spreading them over months."}, {"question": "How much should my letter show?", "answer": "Ask for the letter to match the offer price, not your maximum — showing $600,000 capacity on a $450,000 offer weakens negotiation."}, {"question": "Preapproval vs pre-qualification spelling?", "answer": "Lenders use both spellings; substance matters more than the hyphen. Ask what was verified, not what it is called."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Mortgages · Homebuying process</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Preapproval vs Prequalification: Know Before You Offer</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Mortgages · Homebuying process</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Preapproval vs Prequalification: Know Before You Offer</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Prequalification is a quick, unverified estimate from self-reported numbers. Preapproval is a documented, underwriter-backed review of credit, income, and assets stating what a lender will likely lend. Sellers and listing agents trust the second and mostly ignore the first. In competitive markets, offers without a real preapproval rarely get countered. This guide shows what each includes, which documents to gather, how credit is affected, and how to turn approval into an offer that closes.
@@ -26,12 +28,13 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">What each actually verifies</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Prequalification may take ten minutes online with no pay stubs or tax returns — useful for early budgeting, worthless as proof of funds. Preapproval pulls credit, verifies W-2s or 1099s, tax returns, bank statements, and employment, runs automated underwriting, and often includes conditions (appraisal, title, verification of funds to close). Fully underwritten or TBD approvals go further, clearing income and assets before you find the property so only the collateral remains. Ask your lender which level they issue: a one-page letter with a live contact, income verification date, and expiration (usually 60–90 days) signals real work behind it.
         </p>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="preapproval-vs-prequalification ledger — What each actually verifies">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Feature</th><th className="py-3 pr-4">Prequalification</th><th className="py-3">Preapproval</th></tr></thead>
             <tbody className="opacity-90">
@@ -42,6 +45,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Documents and timing</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Gather photo ID, 30 days of pay stubs, two years of W-2s/1099s and tax returns, two to three months of all bank and investment statements (every page, even blanks), and explanations for large deposits. Self-employed borrowers add profit-and-loss statements and two years of business returns. Get preapproved two to three months before serious shopping: time to fix findings, improve scores, and address DTI without pressure. Refresh the letter if it expires, income changes, or you switch programs (conventional to FHA, for example). Keep finances frozen after approval — no new credit, job changes, or large undocumented transfers until funding.
@@ -58,12 +62,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does preapproval guarantee the loan?</summary><p className="mt-2 opacity-80">No — it is conditional on appraisal, title, unchanged finances, and final underwriting. Treat it as highly likely, not certain.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will multiple preapprovals hurt credit?</summary><p className="mt-2 opacity-80">Rate-shopping pulls within about two weeks generally count as one inquiry. Batch applications rather than spreading them over months.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How much should my letter show?</summary><p className="mt-2 opacity-80">Ask for the letter to match the offer price, not your maximum — showing $600,000 capacity on a $450,000 offer weakens negotiation.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Preapproval vs pre-qualification spelling?</summary><p className="mt-2 opacity-80">Lenders use both spellings; substance matters more than the hyphen. Ask what was verified, not what it is called.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does preapproval guarantee the loan?</summary><p className="mt-2 opacity-80">No — it is conditional on appraisal, title, unchanged finances, and final underwriting. Treat it as highly likely, not certain.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will multiple preapprovals hurt credit?</summary><p className="mt-2 opacity-80">Rate-shopping pulls within about two weeks generally count as one inquiry. Batch applications rather than spreading them over months.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How much should my letter show?</summary><p className="mt-2 opacity-80">Ask for the letter to match the offer price, not your maximum — showing $600,000 capacity on a $450,000 offer weakens negotiation.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Preapproval vs pre-qualification spelling?</summary><p className="mt-2 opacity-80">Lenders use both spellings; substance matters more than the hyphen. Ask what was verified, not what it is called.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -80,7 +84,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB preapproval guidance</a> on verification and shopping for lenders, and <a className="underline" href="https://www.hud.gov/buying">HUD homebuying resources</a> for offer preparation.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -90,6 +94,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="Preapproval vs Prequalification: What Sellers Trust" description="Preapproval vs prequalification explained: verification levels, documents, timing, credit effects, and how to make an offer that wins." slug="preapproval-vs-prequalification" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

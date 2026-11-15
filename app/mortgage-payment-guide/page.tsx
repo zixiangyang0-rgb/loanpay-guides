@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PaymentCalculator from "./calculator";
+import ToolIsland from "../components/ToolIsland";
+import LedgerTable from "../components/LedgerTable";
 import AdSlot from "../components/AdSlot";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Why did my monthly payment go up if I have a fixed rate?", "answer": "Your principal and interest are fixed, but escrow is not. Higher property taxes or insurance premiums raise the escrow slice. Check the annual escrow statement for the exact shortage and the new monthly amount."}, {"question": "How much of my payment goes to principal at first?", "answer": "Less than most people expect — often only 10 to 20 percent in year one on a 30-year loan. Extra principal payments early therefore cut total interest the most."}, {"question": "Is it better to waive escrow?", "answer": "Some lenders allow it with enough equity and a fee, but you must then save for lump-sum tax and insurance bills yourself. Most first-time buyers do better with escrow."}, {"question": "Does extra principal lower next month&apos;s bill?", "answer": "No — the scheduled payment stays the same, but more of each future payment goes to principal and the loan ends sooner. Recasting is the exception that resets the payment."}];
@@ -17,12 +20,12 @@ export const metadata: Metadata = {
 
 export default function MortgagePaymentGuide() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">
           Mortgages · Payment basics
         </p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">
           Mortgage Payment Guide: What You Actually Pay Each Month
         </h1>
         <p className="mt-4 text-sm leading-relaxed opacity-80">
@@ -44,7 +47,7 @@ export default function MortgagePaymentGuide() {
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
 
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The six parts of a typical payment</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           The industry shorthand is PITI — principal, interest, taxes, and
@@ -99,7 +102,13 @@ export default function MortgagePaymentGuide() {
           payment. Our companion guide on fixed versus adjustable loans walks
           through caps in detail.
         </p>
-        <PaymentCalculator />
+            <ToolIsland
+              islandId="mortgage-payment-guide-estimator"
+              title="Try the numbers: full payment builder"
+              method="Amortization arithmetic only: M = P × r × (1+r)^n / ((1+r)^n − 1), plus one-twelfth of annual tax and insurance."
+            >
+              <PaymentCalculator />
+            </ToolIsland>
 
         <h2 className="mt-8 text-2xl font-semibold">Taxes, insurance, and escrow in plain English</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -128,7 +137,8 @@ export default function MortgagePaymentGuide() {
         </p>
 
         <h2 className="mt-8 text-xl font-semibold">What a full payment looks like: cost breakdown</h2>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="mortgage-payment-guide ledger — PITI components, who sets each">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[560px] border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70">
@@ -166,6 +176,7 @@ export default function MortgagePaymentGuide() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
 
         <h2 className="mt-8 text-2xl font-semibold">Worked example: $400,000 home, 20% down</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
@@ -221,13 +232,13 @@ export default function MortgagePaymentGuide() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Why did my monthly payment go up if I have a fixed rate?</summary><p className="mt-2 opacity-80">Your principal and interest are fixed, but escrow is not. Higher property taxes or insurance premiums raise the escrow slice. Check the annual escrow statement for the exact shortage and the new monthly amount.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How much of my payment goes to principal at first?</summary><p className="mt-2 opacity-80">Less than most people expect — often only 10 to 20 percent in year one on a 30-year loan. Extra principal payments early therefore cut total interest the most.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is it better to waive escrow?</summary><p className="mt-2 opacity-80">Some lenders allow it with enough equity and a fee, but you must then save for lump-sum tax and insurance bills yourself. Most first-time buyers do better with escrow.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does extra principal lower next month&apos;s bill?</summary><p className="mt-2 opacity-80">No — the scheduled payment stays the same, but more of each future payment goes to principal and the loan ends sooner. Recasting is the exception that resets the payment.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Why did my monthly payment go up if I have a fixed rate?</summary><p className="mt-2 opacity-80">Your principal and interest are fixed, but escrow is not. Higher property taxes or insurance premiums raise the escrow slice. Check the annual escrow statement for the exact shortage and the new monthly amount.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How much of my payment goes to principal at first?</summary><p className="mt-2 opacity-80">Less than most people expect — often only 10 to 20 percent in year one on a 30-year loan. Extra principal payments early therefore cut total interest the most.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is it better to waive escrow?</summary><p className="mt-2 opacity-80">Some lenders allow it with enough equity and a fee, but you must then save for lump-sum tax and insurance bills yourself. Most first-time buyers do better with escrow.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does extra principal lower next month&apos;s bill?</summary><p className="mt-2 opacity-80">No — the scheduled payment stays the same, but more of each future payment goes to principal and the loan ends sooner. Recasting is the exception that resets the payment.</p></details>
         </div>
 
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -244,7 +255,7 @@ export default function MortgagePaymentGuide() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB mortgage-payment guidance</a> on PITI and Loan Estimates, <a className="underline" href="https://www.hud.gov/buying">HUD homebuying resources</a>, and <a className="underline" href="https://www.fhfa.gov/">FHFA housing data</a>.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -261,6 +272,6 @@ export default function MortgagePaymentGuide() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="Mortgage Payment Guide: Principal, Interest, Taxes & Insurance" description="Learn how mortgage payments work: principal and interest math, taxes, insurance, PMI, and HOA. Includes a worked $400,000 example and payment calculator." slug="mortgage-payment-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

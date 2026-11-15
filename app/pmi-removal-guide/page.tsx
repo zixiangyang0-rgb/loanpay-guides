@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Does extra principal remove PMI sooner?", "answer": "Yes — lump sums or monthly extras pull the 80% date forward on the original-value track, and a lower balance also helps on the current-value track."}, {"question": "Do renovations count toward value?", "answer": "They can, once an appraiser recognizes them. Keep permits, contracts, and before/after records. Cosmetic-only work adds less than systems and square footage."}, {"question": "What if my servicer says no?", "answer": "Ask for the written reason, the reapplication date, and whether a different valuation type qualifies. Escalate with the CFPB complaint path if rules seem misapplied."}, {"question": "Is lender-paid PMI removable?", "answer": "No — it is baked into your higher rate with no monthly line to cancel. Refinancing is the only exit, so compare its lifetime cost upfront."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Mortgages · Insurance</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">PMI Removal Guide: Stop Paying for Insurance You No Longer Need</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Mortgages · Insurance</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">PMI Removal Guide: Stop Paying for Insurance You No Longer Need</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Private mortgage insurance protects the lender — not you — on conventional loans below 20 percent equity, typically costing $100 to $300 monthly per $300,000 borrowed. Federal law provides two exits: request cancellation at 80 percent loan-to-value and automatic termination at 78 percent of the original value on schedule. Faster paths exist through appreciation-backed appraisals or refinancing. FHA MIP follows different, stricter rules. This guide maps every route with timelines and a worked example.
@@ -26,12 +28,13 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The three conventional PMI exits</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Borrower-requested cancellation: once your balance hits 80 percent of the original value through paydown, you can ask in writing. Requirements typically include good payment history (no 30-day lates in 12 months), a current appraisal or broker price opinion confirming value, and sometimes two years of seasoning — shorter with substantial improvements. Automatic termination: at 78 percent of the original value based on the amortization schedule (or the original value if never delinquent), the servicer must drop PMI without your request, provided you are current. Final termination at the loan&apos;s midpoint is a backstop. Note the baseline is original value: scheduled paydown alone gets you there slowly, while appreciation plus a new valuation gets you there fast — but the servicer, not Zillow, decides value.
         </p>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="pmi-removal-guide ledger — The three conventional PMI exits">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Path</th><th className="py-3 pr-4">Trigger</th><th className="py-3 pr-4">Typical timing</th><th className="py-3">Cost</th></tr></thead>
             <tbody className="opacity-90">
@@ -42,6 +45,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Worked timeline: $380,000 at 10% down</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Price $380,000, down $38,000, loan $342,000 at 90 percent LTV. PMI near 0.5 percent costs about $143 monthly. Normal amortization reaches 80 percent of original value ($304,000 balance) in roughly 7 years and 78 percent ($296,400) in roughly 9 years — costing about $12,000–$15,000 in PMI if you wait. If the home appreciates 4 percent yearly, value hits about $445,000 in year four, making the $330,000 balance about 74 percent of current value — eligible for appraisal-based cancellation years early, saving roughly $5,000–$7,000 net of the appraisal. Refinancing to a lower rate at 80 percent LTV can combine the insurance exit with rate savings; compare refinance costs against pure cancellation, which is nearly free. Track progress with <a className="underline" href="https://loanpaylogic.com/mortgage-calculator/">loanpaylogic.com mortgage tools</a>.
@@ -54,12 +58,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does extra principal remove PMI sooner?</summary><p className="mt-2 opacity-80">Yes — lump sums or monthly extras pull the 80% date forward on the original-value track, and a lower balance also helps on the current-value track.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do renovations count toward value?</summary><p className="mt-2 opacity-80">They can, once an appraiser recognizes them. Keep permits, contracts, and before/after records. Cosmetic-only work adds less than systems and square footage.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if my servicer says no?</summary><p className="mt-2 opacity-80">Ask for the written reason, the reapplication date, and whether a different valuation type qualifies. Escalate with the CFPB complaint path if rules seem misapplied.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is lender-paid PMI removable?</summary><p className="mt-2 opacity-80">No — it is baked into your higher rate with no monthly line to cancel. Refinancing is the only exit, so compare its lifetime cost upfront.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Does extra principal remove PMI sooner?</summary><p className="mt-2 opacity-80">Yes — lump sums or monthly extras pull the 80% date forward on the original-value track, and a lower balance also helps on the current-value track.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do renovations count toward value?</summary><p className="mt-2 opacity-80">They can, once an appraiser recognizes them. Keep permits, contracts, and before/after records. Cosmetic-only work adds less than systems and square footage.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if my servicer says no?</summary><p className="mt-2 opacity-80">Ask for the written reason, the reapplication date, and whether a different valuation type qualifies. Escalate with the CFPB complaint path if rules seem misapplied.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is lender-paid PMI removable?</summary><p className="mt-2 opacity-80">No — it is baked into your higher rate with no monthly line to cancel. Refinancing is the only exit, so compare its lifetime cost upfront.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -76,7 +80,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB private mortgage insurance guidance</a> on cancellation rights, and <a className="underline" href="https://www.fhfa.gov/">FHFA homeowner resources</a> for conforming-loan rules.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -86,6 +90,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="PMI Removal Guide: Cancel Private Mortgage Insurance Faster" description="How to remove PMI: automatic termination, borrower-requested cancellation at 80% LTV, appraisal paths, and FHA MIP differences with a worked timeline." slug="pmi-removal-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Can I cancel FHA MIP at 20% equity?", "answer": "Not on loans from mid-2013 onward with less than 10% down — MIP lasts for life. You must refinance to conventional, sell, or pay off. With 10%+ down it ends after 11 years."}, {"question": "Can I use FHA for an investment property?", "answer": "No — primary residence only. You may buy a 2–4 unit property with FHA if you live in one unit."}, {"question": "Do sellers dislike FHA offers?", "answer": "Sometimes, due to appraisal repair conditions and timelines. A strong preapproval and flexible terms help compete."}, {"question": "What credit score do I really need?", "answer": "Program minimums start at 500–580, but most lenders require 580–620. Higher scores earn better rates and more approvals."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Loan programs · FHA</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">FHA Loan Guide 2026: Low Down Payment, Clear Tradeoffs</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Loan programs · FHA</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">FHA Loan Guide 2026: Low Down Payment, Clear Tradeoffs</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           FHA loans insured by the Federal Housing Administration open homeownership with 3.5 percent down and credit scores from 580 — or 10 percent down with scores from 500 to 579 under program rules. The tradeoff is mortgage insurance on every loan: 1.75 percent upfront plus annual premiums that last 11 years or the life of the loan depending on your down payment. For 2026, FHA floor and ceiling limits are $541,287 and $1,249,125 for one-unit homes in most states. This guide explains who FHA fits, what it costs, and how it compares.
@@ -26,7 +28,7 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Eligibility and 2026 limits</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           FHA requires a primary residence, steady income, and a property that meets minimum safety standards with an FHA appraisal. Down payment minimums follow credit: 580-plus qualifies for 3.5 percent down in principle, while 500–579 needs 10 percent — though individual lenders often overlay higher minimums near 580–620. Debt-to-income up to about 43 percent is standard, with higher ratios possible with compensating factors like reserves or minimal payment increase. Loan limits for 2026 case numbers: the national floor is $541,287 (65 percent of the $832,750 conforming baseline) and the high-cost ceiling is $1,249,125 (150 percent), with higher special-exception limits in Alaska, Hawaii, Guam, and the Virgin Islands. Check your county on HUD&apos;s lookup — expensive coastal counties sit at the ceiling while most counties sit at the floor.
@@ -35,7 +37,8 @@ export default function Page() {
           Mortgage insurance has two parts. Upfront MIP is 1.75 percent of the base loan, usually financed into the balance. Annual MIP for 30-year loans is typically 0.50 to 0.55 percent for standard balances (0.55 percent when loan-to-value exceeds 95 percent) following the 2023 reduction, and higher above the $726,200 pricing tier. Duration follows June 2013 rules: put 10 percent or more down and MIP ends after 11 years; put less down and it lasts the loan&apos;s life unless you refinance or sell. Run scenarios with the <a className="underline" href="https://loanpaylogic.com/fha-loan-calculator/">FHA calculator on loanpaylogic.com</a>.
         </p>
         <h2 className="mt-8 text-xl font-semibold">FHA vs conventional at a glance</h2>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="fha-loan-guide ledger — FHA vs conventional at a glance">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Feature</th><th className="py-3 pr-4">FHA</th><th className="py-3">Conventional (Fannie/Freddie)</th></tr></thead>
             <tbody className="opacity-90">
@@ -46,6 +49,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Worked example: $350,000 with 3.5% down</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Price $350,000, down $12,250, base loan $337,750. Upfront MIP at 1.75 percent adds about $5,911, making the total loan roughly $343,661 if financed. At 6.8 percent for 30 years (illustrative), principal and interest run about $2,241. Annual MIP at 0.55 percent on the base amount adds about $155 monthly. Add tax and insurance — say $320 and $140 — and the all-in payment lands near $2,856. A conventional 5-percent-down alternative at a slightly higher rate might carry PMI near $130 that later cancels, while FHA MIP at this LTV lasts for life. That contrast is the decision: FHA&apos;s easier entry versus conventional&apos;s cheaper exit.
@@ -58,12 +62,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I cancel FHA MIP at 20% equity?</summary><p className="mt-2 opacity-80">Not on loans from mid-2013 onward with less than 10% down — MIP lasts for life. You must refinance to conventional, sell, or pay off. With 10%+ down it ends after 11 years.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I use FHA for an investment property?</summary><p className="mt-2 opacity-80">No — primary residence only. You may buy a 2–4 unit property with FHA if you live in one unit.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do sellers dislike FHA offers?</summary><p className="mt-2 opacity-80">Sometimes, due to appraisal repair conditions and timelines. A strong preapproval and flexible terms help compete.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What credit score do I really need?</summary><p className="mt-2 opacity-80">Program minimums start at 500–580, but most lenders require 580–620. Higher scores earn better rates and more approvals.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I cancel FHA MIP at 20% equity?</summary><p className="mt-2 opacity-80">Not on loans from mid-2013 onward with less than 10% down — MIP lasts for life. You must refinance to conventional, sell, or pay off. With 10%+ down it ends after 11 years.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I use FHA for an investment property?</summary><p className="mt-2 opacity-80">No — primary residence only. You may buy a 2–4 unit property with FHA if you live in one unit.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do sellers dislike FHA offers?</summary><p className="mt-2 opacity-80">Sometimes, due to appraisal repair conditions and timelines. A strong preapproval and flexible terms help compete.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What credit score do I really need?</summary><p className="mt-2 opacity-80">Program minimums start at 500–580, but most lenders require 580–620. Higher scores earn better rates and more approvals.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -80,7 +84,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.hud.gov/program_offices/housing/sfh/ins">HUD FHA loan requirements</a> for limits, MIP, and county lookups, and the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB FHA guidance</a> for borrower rights.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -90,6 +94,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="FHA Loan Guide 2026: Limits, MIP & Who Should Apply" description="FHA loans in 2026: 3.5% down rules, $541,287 floor and $1,249,125 ceiling, upfront and annual MIP, credit standards, and a worked example." slug="fha-loan-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "About LoanPay Guides",
   description:
     "Learn what guides.loanpaylogic.com publishes, who writes it, and how our educational guides help readers understand money topics.",
+  alternates: { canonical: "https://guides.loanpaylogic.com/about" },
 };
 
 export default function AboutPage() {

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Are origination fees tax-deductible?", "answer": "Points that are prepaid interest may be, subject to itemizing and program rules; flat lender fees generally are not. Ask a tax professional."}, {"question": "Can fees be waived entirely?", "answer": "Sometimes reduced or offset by credits, rarely eliminated free — margin moves to the rate. Compare all-in cost, not fee labels."}, {"question": "Do bigger loans pay higher fees?", "answer": "Percentage fees scale with size; flats do not. Jumbo Section A often runs higher with deeper negotiation room."}, {"question": "What are discount vs origination points?", "answer": "Discount points buy rate; origination points are lender compensation. Both appear in Section A — add them together when comparing."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Mortgages · Fees</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Loan Origination Fees Guide: Read Section A Like a Pro</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Mortgages · Fees</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Loan Origination Fees Guide: Read Section A Like a Pro</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Origination fees are what the lender charges for creating the loan — distinct from third-party title, appraisal, and government costs. They appear as Section A on the Loan Estimate and take three forms: percentage points, flat underwriting or processing fees, or negative points (lender credits) that pay you toward closing for a higher rate. Because Section A is the part lenders control, it is the part you negotiate. Master it and you can compare any two offers in minutes.
@@ -26,12 +28,13 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Points, flats, and credits decoded</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           A 1 percent origination fee on $360,000 is $3,600. Flat fees run $1,000–$2,000 labeled as underwriting, processing, or administration — sometimes stacked, so add every Section A line rather than reading one label. Discount points buy rate down; lender credits raise rate to cover costs. Junk-fee vigilance matters: application, rate-lock, or document-prep add-ons deserve a challenge, and federal tolerance rules bar many surprise increases at closing. Lenders quoting &quot;no origination fee&quot; often embed margin in a higher rate — compare APR plus cash to close, not slogans.
         </p>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="loan-origination-fees-guide ledger — Points, flats, and credits decoded">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Offer on $360k</th><th className="py-3 pr-4">Section A</th><th className="py-3 pr-4">Rate (illustrative)</th><th className="py-3">Best when</th></tr></thead>
             <tbody className="opacity-90">
@@ -41,6 +44,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Worked comparison</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           X at 6.75 percent: P&amp;I about $2,335. Y at 6.99 percent: about $2,394 ($59 more). Z at 7.25 percent: about $2,456 ($121 more than X). X costs $1,900 more upfront than Y but saves $59 monthly — break-even near 32 months. Against Z, X costs $4,800 more upfront but saves $121 monthly — break-even near 40 months. Stay eight years and X wins by roughly $4,000–$7,000; sell in two years and Z wins. Always anchor break-even to your realistic move or refinance date, and get all three quotes same-day since pricing shifts. Structure comparisons with <a className="underline" href="https://loanpaylogic.com/mortgage-comparison-calculator/">loanpaylogic.com comparison tools</a>.
@@ -53,12 +57,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are origination fees tax-deductible?</summary><p className="mt-2 opacity-80">Points that are prepaid interest may be, subject to itemizing and program rules; flat lender fees generally are not. Ask a tax professional.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can fees be waived entirely?</summary><p className="mt-2 opacity-80">Sometimes reduced or offset by credits, rarely eliminated free — margin moves to the rate. Compare all-in cost, not fee labels.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do bigger loans pay higher fees?</summary><p className="mt-2 opacity-80">Percentage fees scale with size; flats do not. Jumbo Section A often runs higher with deeper negotiation room.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What are discount vs origination points?</summary><p className="mt-2 opacity-80">Discount points buy rate; origination points are lender compensation. Both appear in Section A — add them together when comparing.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Are origination fees tax-deductible?</summary><p className="mt-2 opacity-80">Points that are prepaid interest may be, subject to itemizing and program rules; flat lender fees generally are not. Ask a tax professional.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can fees be waived entirely?</summary><p className="mt-2 opacity-80">Sometimes reduced or offset by credits, rarely eliminated free — margin moves to the rate. Compare all-in cost, not fee labels.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Do bigger loans pay higher fees?</summary><p className="mt-2 opacity-80">Percentage fees scale with size; flats do not. Jumbo Section A often runs higher with deeper negotiation room.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What are discount vs origination points?</summary><p className="mt-2 opacity-80">Discount points buy rate; origination points are lender compensation. Both appear in Section A — add them together when comparing.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -75,7 +79,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB Loan Estimate explainer</a> for comparing origination charges, and <a className="underline" href="https://www.hud.gov/buying">HUD settlement-cost resources</a> for fee shopping.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -85,6 +89,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="Loan Origination Fees Guide: What Lenders Charge & Why" description="Origination fees explained: points vs flat fees vs lender credits, how to compare Loan Estimates, and a $360,000 shopping example." slug="loan-origination-fees-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

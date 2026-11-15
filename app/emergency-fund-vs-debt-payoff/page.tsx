@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Where should I keep it?", "answer": "A separate high-yield savings account at a different bank than checking reduces temptation while staying liquid. Money markets work too; stocks do not."}, {"question": "Should I pause investing to pay debt?", "answer": "Keep any employer match, pause beyond that for debt above ~7–8%, then resume. Matches are free money no debt rate beats."}, {"question": "What counts as an emergency?", "answer": "Job loss, essential repairs, medical needs — not sales, travel, or gifts. Define it in writing before funding."}, {"question": "How do couples split this?", "answer": "One joint buffer sized on shared essentials, then joint high-rate payoff. Keep individual mini-buffers only if spending friction demands it."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Debt strategy · Cash planning</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Emergency Fund vs Debt Payoff: Fund Both in the Right Order</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Debt strategy · Cash planning</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Emergency Fund vs Debt Payoff: Fund Both in the Right Order</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Extra dollars face a tug-of-war: cash in savings earns modest interest while debt charges far more, yet zero savings means every surprise lands on a card at high rates. The answer is sequencing, not either-or. Build a small buffer first, attack high-rate debt aggressively, then expand to a full emergency fund before chasing lower-rate debt or investing beyond matches. This guide gives the stages, sizing math, account choices, and a worked $5,000 example.
@@ -26,12 +28,13 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">The staged order that works</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Stage one: $500–$1,000 mini-buffer in savings while paying debt minimums — enough to absorb tires, copays, and utility spikes without new borrowing. Stage two: avalanche or snowball all debt above roughly 7–8 percent while holding the buffer steady. Stage three: expand to one month of essential spending, then three, then three to six depending on job stability, income variability, and dependents. Stage four: with high-rate debt gone and a full fund in place, split extra dollars among lower-rate payoff, retirement beyond the employer match, and goals like a home down payment. Keep capturing any 401(k) match throughout — a 50–100 percent instant return beats most debt APRs.
         </p>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="emergency-fund-vs-debt-payoff ledger — The staged order that works">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Stage</th><th className="py-3 pr-4">Action</th><th className="py-3">Why</th></tr></thead>
             <tbody className="opacity-90">
@@ -42,6 +45,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Sizing your fund honestly</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Count essentials only: housing, food, transport, insurance, minimum debt payments, childcare, and medical — not dining or travel. A $4,200 essentials month means a $12,600 three-month fund and $25,200 at six months. Single-income, variable-pay, or single-parent households should target the higher end; dual stable incomes with strong disability coverage can sit nearer three months. Keep the fund in a separate high-yield savings account (APYs near 4 percent as of autumn 2026, variable) — liquid next-day, never invested in stocks or locked in CDs you would break with penalty. Replenish immediately after any draw; a fund you do not refill is a one-time windfall, not a system.
@@ -58,12 +62,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Where should I keep it?</summary><p className="mt-2 opacity-80">A separate high-yield savings account at a different bank than checking reduces temptation while staying liquid. Money markets work too; stocks do not.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I pause investing to pay debt?</summary><p className="mt-2 opacity-80">Keep any employer match, pause beyond that for debt above ~7–8%, then resume. Matches are free money no debt rate beats.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What counts as an emergency?</summary><p className="mt-2 opacity-80">Job loss, essential repairs, medical needs — not sales, travel, or gifts. Define it in writing before funding.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How do couples split this?</summary><p className="mt-2 opacity-80">One joint buffer sized on shared essentials, then joint high-rate payoff. Keep individual mini-buffers only if spending friction demands it.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Where should I keep it?</summary><p className="mt-2 opacity-80">A separate high-yield savings account at a different bank than checking reduces temptation while staying liquid. Money markets work too; stocks do not.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I pause investing to pay debt?</summary><p className="mt-2 opacity-80">Keep any employer match, pause beyond that for debt above ~7–8%, then resume. Matches are free money no debt rate beats.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What counts as an emergency?</summary><p className="mt-2 opacity-80">Job loss, essential repairs, medical needs — not sales, travel, or gifts. Define it in writing before funding.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How do couples split this?</summary><p className="mt-2 opacity-80">One joint buffer sized on shared essentials, then joint high-rate payoff. Keep individual mini-buffers only if spending friction demands it.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -80,7 +84,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/">CFPB savings resources</a> on building a starter buffer, and <a className="underline" href="https://consumer.ftc.gov/">FTC emergency-savings advice</a> for sizing your fund.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -90,6 +94,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="Emergency Fund vs Debt Payoff: Where Extra Dollars Go" description="Emergency fund vs paying debt: the staged order that protects both goals, sizing rules, where to keep cash, and a $5,000 allocation example." slug="emergency-fund-vs-debt-payoff" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

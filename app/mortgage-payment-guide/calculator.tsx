@@ -15,7 +15,7 @@ export default function PaymentCalculator() {
   const total = pi + (Number(tax) || 0) / 12 + (Number(ins) || 0) / 12;
 
   return (
-    <div className="glass-card mt-6 rounded-2xl p-6">
+    <div className="glass-card g-tool-island mt-6 rounded-2xl p-6">
       <h3 className="text-lg font-semibold">Quick payment estimator</h3>
       <p className="mt-1 text-xs opacity-70">Principal &amp; interest plus monthly tax and insurance. Estimate only.</p>
       <div className="mt-4 grid gap-4 sm:grid-cols-2">

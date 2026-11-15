@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Terms of Use",
   description:
     "Terms of use for guides.loanpaylogic.com covering acceptable use, intellectual property, and limitations.",
+  alternates: { canonical: "https://guides.loanpaylogic.com/terms" },
 };
 
 export default function TermsPage() {

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Disclaimer",
   description:
     "Disclaimer for guides.loanpaylogic.com: educational content only, not financial or professional advice.",
+  alternates: { canonical: "https://guides.loanpaylogic.com/disclaimer" },
 };
 
 export default function DisclaimerPage() {

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "How long before I can cash out?", "answer": "Often six months of ownership/seasoning for conventional, longer for some programs. Lenders verify value growth is real, not inflated."}, {"question": "Is cash-out interest deductible?", "answer": "Only the portion used to buy, build, or substantially improve the securing home (and if you itemize). Cash used otherwise is generally not deductible."}, {"question": "Will cash-out affect my rate?", "answer": "Yes — expect a premium over no-cash refinances, plus possible loan-level adjustments for LTV and credit."}, {"question": "What if values fall after?", "answer": "You owe the larger balance on a smaller cushion, limiting future refinance or sale options. Borrow well under the max to keep margin."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Mortgages · Tapping equity</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Cash-Out Refinance Guide: Turn Equity Into Cash — Carefully</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Mortgages · Tapping equity</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Cash-Out Refinance Guide: Turn Equity Into Cash — Carefully</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           A cash-out refinance replaces your mortgage with a larger one and hands you the difference in cash. It is one withdrawal, one payment, at mortgage rates — often cheaper than cards or personal loans. It also raises your balance, usually raises your rate above no-cash pricing, restarts the payoff clock, and puts your home behind the new debt. Sensible for value-adding renovations or consolidating high-rate debt you will not rebuild; risky for lifestyle spending or covering deficits. This guide shows the limits, true costs, and alternatives.
@@ -26,12 +28,13 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">How much cash can you take?</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Conventional cash-out generally caps at 80 percent loan-to-value: on a $500,000 home owing $300,000, the max new loan is $400,000, netting about $100,000 minus costs. FHA caps near 80 percent as well in most cases; VA allows up to 100 percent of value for eligible borrowers. You need verifiable income, an appraisal confirming value, and DTI that handles the bigger payment. Pricing runs about 0.25 to 0.75 point above rate-and-term refinance rates because investors view equity extraction as riskier. Cash-out also changes tax treatment: interest on the extra cash is generally deductible only if used to buy, build, or substantially improve the securing home — not for cards, cars, or vacations. Confirm with a tax professional.
         </p>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="cash-out-refinance-guide ledger — How much cash can you take?">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Option</th><th className="py-3 pr-4">Cash style</th><th className="py-3 pr-4">Best when</th><th className="py-3">Downside</th></tr></thead>
             <tbody className="opacity-90">
@@ -42,6 +45,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Worked example: $420,000 value, $280,000 owed</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Value $420,000 at 80 percent allows a $336,000 new loan. After paying the $280,000 balance, about $56,000 remains before $6,000–$8,000 in closing costs, netting roughly $48,000–$50,000. If the old rate was 6.8 percent on $280,000 (payment ~$1,825) and the new $336,000 prices at 7.0 percent (payment ~$2,236), the payment rises $411 for $50,000 cash — effectively financing that cash near mortgage rates but lifting the whole balance to the higher rate. If instead your existing first lien is 3.5 percent, cash-out destroys a superb rate; a second-lien equity loan keeping the 3.5 percent first intact usually wins despite its higher second-lien rate. Always compare blended cost, not headline rate.
@@ -54,12 +58,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How long before I can cash out?</summary><p className="mt-2 opacity-80">Often six months of ownership/seasoning for conventional, longer for some programs. Lenders verify value growth is real, not inflated.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is cash-out interest deductible?</summary><p className="mt-2 opacity-80">Only the portion used to buy, build, or substantially improve the securing home (and if you itemize). Cash used otherwise is generally not deductible.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will cash-out affect my rate?</summary><p className="mt-2 opacity-80">Yes — expect a premium over no-cash refinances, plus possible loan-level adjustments for LTV and credit.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if values fall after?</summary><p className="mt-2 opacity-80">You owe the larger balance on a smaller cushion, limiting future refinance or sale options. Borrow well under the max to keep margin.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">How long before I can cash out?</summary><p className="mt-2 opacity-80">Often six months of ownership/seasoning for conventional, longer for some programs. Lenders verify value growth is real, not inflated.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is cash-out interest deductible?</summary><p className="mt-2 opacity-80">Only the portion used to buy, build, or substantially improve the securing home (and if you itemize). Cash used otherwise is generally not deductible.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Will cash-out affect my rate?</summary><p className="mt-2 opacity-80">Yes — expect a premium over no-cash refinances, plus possible loan-level adjustments for LTV and credit.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">What if values fall after?</summary><p className="mt-2 opacity-80">You owe the larger balance on a smaller cushion, limiting future refinance or sale options. Borrow well under the max to keep margin.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -76,7 +80,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/category-mortgages/">CFPB refinancing guidance</a> on break-even math and closing disclosures, <a className="underline" href="https://www.fhfa.gov/">FHFA refinance data</a>, and <a className="underline" href="https://www.hud.gov/buying">HUD homebuying resources</a>.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -86,6 +90,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="Cash-Out Refinance Guide: Costs, Limits & Alternatives" description="Cash-out refinance explained: how equity math, rates, and taxes work, when it makes sense, and a $420,000 example with alternatives table." slug="cash-out-refinance-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

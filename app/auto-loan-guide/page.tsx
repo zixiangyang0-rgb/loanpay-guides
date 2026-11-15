@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Should I focus on monthly payment or price?", "answer": "Price first. Dealers can hit any payment by stretching the term. Negotiate out-the-door price, then rate, then term — in that order."}, {"question": "Is 0% dealer financing real?", "answer": "Yes, but usually for top-tier credit, short terms, and instead of a rebate. Compare 0% for 36 months versus a $2,500 rebate at 6% — the rebate often wins on longer terms."}, {"question": "Can I pay extra on an auto loan?", "answer": "Usually yes — simple interest means extra principal immediately cuts future interest. Confirm no prepayment penalty and that extras apply to principal."}, {"question": "New, used, or certified?", "answer": "A two- to three-year-old reliable model often balances depreciation and repair risk. Certified adds warranty at a price premium worth comparing."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Auto &amp; personal · Car loans</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Auto Loan Guide: Borrow Smart for Your Next Car</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Auto &amp; personal · Car loans</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">Auto Loan Guide: Borrow Smart for Your Next Car</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           Auto loans are simple-interest installment loans secured by the vehicle: fixed payments, fixed term, and the car as collateral. The expensive parts are the term length, the rate markup, and add-ons sold in the finance office. A 72-month loan can feel affordable while costing thousands more and leaving you owing more than the car is worth. This guide explains rate tiers, term tradeoffs, preapproval leverage, and the exact numbers on a $32,000 purchase so you drive away with the car and the deal.
@@ -26,7 +28,7 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Rates, terms, and what credit buys</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           New-car rates run lower than used-car rates because collateral values are firmer; used, certified, and private-party loans price progressively higher. As of 2026, borrowers with excellent credit commonly saw new-car APRs in the 5s to 7s and used-car APRs a point or two higher, while deep-subprime borrowers faced mid-teens or higher —illustrative ranges as of autumn 2026, not quotes. Terms stretch from 36 to 84 months. Shorter terms mean higher payments but far less interest and faster equity. Longer terms shrink the payment but inflate total cost and the window where you are underwater, especially with little down. Put at least 10 to 20 percent down plus taxes and fees when possible, and keep the term at 60 months or less for new cars and 48 or less for used whenever cash flow allows.
@@ -35,7 +37,8 @@ export default function Page() {
           Get preapproved from a bank or credit union before visiting the dealer. A preapproval converts you from a monthly-payment shopper into a cash-price negotiator: settle the out-the-door price first, then let the dealer try to beat your rate. Dealers may mark up the lender&apos;s buy rate by up to 1 to 2 points as compensation — legal in most states if disclosed — so always ask for the buy rate and compare. Walk in with payoff timing tested on <a className="underline" href="https://loanpaylogic.com/loan-tools/">loanpaylogic.com loan tools</a>.
         </p>
         <h2 className="mt-8 text-xl font-semibold">Term comparison on $32,000 at 7.5%</h2>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="auto-loan-guide ledger — Term comparison on $32,000 at 7.5%">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[560px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Term</th><th className="py-3 pr-4">Payment</th><th className="py-3 pr-4">Total interest (est.)</th><th className="py-3">Risk note</th></tr></thead>
             <tbody className="opacity-90">
@@ -46,6 +49,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Worked example: $32,000 out the door</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Price $28,000, plus 7 percent tax ($1,960), $400 registration, and $800 dealer doc fee totals about $31,160 before down payment. With $4,000 down you finance roughly $27,160. At 7.5 percent for 60 months the payment is about $544 with total interest near $5,500. Stretch the same balance to 84 months and the payment falls to about $416 — tempting — but interest rises to roughly $7,850 and you still owe about $17,000 after three years when the car may be worth $15,000. That $2,000 gap (negative equity) rolls into the next loan if you trade early, compounding the trap. GAP insurance covers the gap if the car is totaled, but avoiding the gap with a bigger down payment and shorter term is cheaper.
@@ -61,12 +65,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I focus on monthly payment or price?</summary><p className="mt-2 opacity-80">Price first. Dealers can hit any payment by stretching the term. Negotiate out-the-door price, then rate, then term — in that order.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is 0% dealer financing real?</summary><p className="mt-2 opacity-80">Yes, but usually for top-tier credit, short terms, and instead of a rebate. Compare 0% for 36 months versus a $2,500 rebate at 6% — the rebate often wins on longer terms.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I pay extra on an auto loan?</summary><p className="mt-2 opacity-80">Usually yes — simple interest means extra principal immediately cuts future interest. Confirm no prepayment penalty and that extras apply to principal.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">New, used, or certified?</summary><p className="mt-2 opacity-80">A two- to three-year-old reliable model often balances depreciation and repair risk. Certified adds warranty at a price premium worth comparing.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Should I focus on monthly payment or price?</summary><p className="mt-2 opacity-80">Price first. Dealers can hit any payment by stretching the term. Negotiate out-the-door price, then rate, then term — in that order.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is 0% dealer financing real?</summary><p className="mt-2 opacity-80">Yes, but usually for top-tier credit, short terms, and instead of a rebate. Compare 0% for 36 months versus a $2,500 rebate at 6% — the rebate often wins on longer terms.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can I pay extra on an auto loan?</summary><p className="mt-2 opacity-80">Usually yes — simple interest means extra principal immediately cuts future interest. Confirm no prepayment penalty and that extras apply to principal.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">New, used, or certified?</summary><p className="mt-2 opacity-80">A two- to three-year-old reliable model often balances depreciation and repair risk. Certified adds warranty at a price premium worth comparing.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -83,7 +87,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/">CFPB auto-loan guidance</a> on rates, terms, and dealer markup, and <a className="underline" href="https://consumer.ftc.gov/">FTC car-buying advice</a> for spotting add-on traps.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -93,6 +97,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="Auto Loan Guide: Rates, Terms & Dealer Traps in 2026" description="How auto loans work in 2026: rates by credit tier, term math, down payments, dealer markup, and a $32,000 worked example with comparison table." slug="auto-loan-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }

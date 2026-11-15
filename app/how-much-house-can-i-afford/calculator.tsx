@@ -13,7 +13,7 @@ export default function AffordCalc() {
   const factor = r > 0 ? (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) : 1 / n;
   const loanEst = factor > 0 ? (budget * 0.78) / factor : 0;
   return (
-    <div className="glass-card mt-6 rounded-2xl p-6">
+    <div className="glass-card g-tool-island mt-6 rounded-2xl p-6">
       <h3 className="text-lg font-semibold">Affordability estimator</h3>
       <p className="mt-1 text-xs opacity-70">28% front-end vs 36% back-end. Rough estimate only.</p>
       <div className="mt-4 grid gap-4 sm:grid-cols-3">

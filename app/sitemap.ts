@@ -48,5 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.startsWith("/mortgage") || route.startsWith("/fha") ? 0.8 : 0.7,
+    ...(route === "" ? { images: [`${base}/photos/guides.webp`] } : {}),
   }));
 }

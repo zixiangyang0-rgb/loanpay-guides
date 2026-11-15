@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import AdSlot from "./components/AdSlot";
+import { ChapterNumber, PublicationFigure } from "./components/publication";
+
+const HERO_IMAGE_URL = "https://guides.loanpaylogic.com/photos/guides.webp";
+const HERO_IMAGE_ALT =
+  "Library bookshelves under round windows, empty reading room with no people";
 
 export const metadata: Metadata = {
   title: "Practical Guides on Mortgages, Loans & Debt Strategy",
@@ -8,6 +14,28 @@ export const metadata: Metadata = {
     "Browse 30 plain-English guides from guides.loanpaylogic.com covering mortgages, FHA, VA, USDA, jumbo, refinance, auto, personal, student loans, and debt payoff strategy.",
   alternates: {
     canonical: "https://guides.loanpaylogic.com/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://guides.loanpaylogic.com/",
+    title: "Practical Guides on Mortgages, Loans & Debt Strategy",
+    description:
+      "Browse 30 plain-English guides from guides.loanpaylogic.com covering mortgages, FHA, VA, USDA, jumbo, refinance, auto, personal, student loans, and debt payoff strategy.",
+    images: [
+      {
+        url: HERO_IMAGE_URL,
+        width: 1400,
+        height: 1859,
+        alt: HERO_IMAGE_ALT,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Practical Guides on Mortgages, Loans & Debt Strategy",
+    description:
+      "Browse 30 plain-English guides from guides.loanpaylogic.com covering mortgages, FHA, VA, USDA, jumbo, refinance, auto, personal, student loans, and debt payoff strategy.",
+    images: [HERO_IMAGE_URL],
   },
 };
 
@@ -201,16 +229,37 @@ const groups: Group[] = [
 ];
 
 export default function HomePage() {
+  let chapter = 0;
+  const heroImageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": "https://guides.loanpaylogic.com/#home-hero-image",
+    contentUrl: HERO_IMAGE_URL,
+    url: HERO_IMAGE_URL,
+    width: 1400,
+    height: 1859,
+    caption: HERO_IMAGE_ALT,
+    creditText: "CC0 1.0 — Andy Li via Wikimedia Commons.",
+    creator: { "@type": "Person", name: "Andy Li" },
+    copyrightNotice: "CC0 1.0 Universal — Andy Li via Wikimedia Commons.",
+    license: "https://creativecommons.org/publicdomain/zero/1.0/",
+    acquireLicensePage:
+      "https://commons.wikimedia.org/wiki/File:Bookshelves_in_Hove_Library_2025-08-20.jpg",
+  };
   return (
     <div className="flex flex-col gap-10">
-      <section className="glass-panel rounded-3xl px-8 py-12 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">
-          guides.loanpaylogic.com
-        </p>
-        <h1 className="hero-title mt-3 text-4xl font-bold leading-tight sm:text-5xl">
+      <Script
+        id="home-hero-imageobject"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(heroImageJsonLd) }}
+      />
+      <section className="g-pub px-8 py-12 text-center" aria-label="Publication masthead">
+        <p className="g-pub-kicker">guides.loanpaylogic.com · Explanatory publication</p>
+        <h1 className="g-pub-title mt-3 text-4xl font-bold leading-tight sm:text-5xl">
           Practical Guides for Smarter Money Decisions
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed opacity-80">
+        <p className="g-pub-lede mx-auto mt-4 max-w-2xl text-base leading-relaxed">
           LoanPay Guides explains mortgages, auto and personal loans, student
           refinancing, and debt strategy in plain English — 30 full
           educational guides with worked numbers, comparison tables, and
@@ -220,30 +269,44 @@ export default function HomePage() {
           </a>
           .
         </p>
+        <PublicationFigure
+          src="/photos/guides.webp"
+          width={1400}
+          height={1859}
+          alt="Library bookshelves under round windows, empty reading room with no people"
+          caption="Reading-room shelves, banner crop."
+          credit="CC0 1.0 — Andy Li via Wikimedia Commons."
+        />
       </section>
 
       <AdSlot format="display" slot="TODO-guides-home-display-1" label="Homepage display ad" />
 
+      <nav aria-label="Chapter index" className="g-pub px-6 py-8 sm:px-8">
       {groups.map((group) => (
-        <section key={group.heading}>
-          <h2 className="text-2xl font-semibold">{group.heading}</h2>
-          <p className="mt-2 text-sm opacity-70">{group.blurb}</p>
+        <section key={group.heading} id={group.heading.toLowerCase().replace(/[^a-z]+/g, "-")}>
+          <h2 className="g-pub-section-title text-2xl font-semibold">{group.heading}</h2>
+          <p className="g-pub-body mt-2 text-sm">{group.blurb}</p>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {group.guides.map((guide) => (
-              <article key={guide.href} className="glass-card flex flex-col rounded-2xl p-6">
-                <h3 className="text-lg font-semibold leading-snug">{guide.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed opacity-80">{guide.excerpt}</p>
+            {group.guides.map((guide) => {
+              chapter += 1;
+              return (
+              <article key={guide.href} className="g-pub-card flex flex-col p-6">
+                <ChapterNumber index={chapter} />
+                <h3 className="mt-2 text-lg font-semibold leading-snug">{guide.title}</h3>
+                <p className="g-pub-body mt-3 flex-1 text-sm">{guide.excerpt}</p>
                 <Link
                   href={guide.href}
-                  className="mt-5 inline-flex w-fit items-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium hover:bg-white/10"
+                  className="mt-5 inline-flex w-fit items-center rounded-full border px-4 py-2 text-sm font-medium"
                 >
                   Read guide
                 </Link>
               </article>
-            ))}
+              );
+            })}
           </div>
         </section>
       ))}
+      </nav>
 
       <section className="glass-panel rounded-3xl p-8">
         <h2 className="text-xl font-semibold">Why learn with LoanPay Guides?</h2>

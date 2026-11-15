@@ -191,3 +191,334 @@ input[type="range"]::-moz-range-thumb {
 .recharts-tooltip-wrapper {
   outline: none;
 }
+
+/* Guides V2 — Explanatory Publication (scoped only).
+   Paper/serif applies ONLY inside .g-pub and .g-site-nav.
+   Dark tool islands (.glass-panel/.glass-card) are untouched;
+   no global body/* light inversion. */
+.g-pub {
+  background: #fbfaf6;
+  color: #26241f;
+  border-radius: 20px;
+}
+
+.g-pub-mast {
+  text-align: center;
+  padding: 40px 28px 12px;
+}
+
+.g-pub-kicker {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #7a7264;
+  margin: 0;
+}
+
+.g-pub-title {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: #26241f;
+  margin: 10px 0 6px;
+  text-wrap: balance;
+}
+
+.g-pub-lede {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #4a4438;
+  max-width: 44rem;
+  margin: 12px auto 0;
+}
+
+.g-pub-body {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #26241f;
+}
+
+.g-pub-section-title {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 24px;
+  line-height: 1.35;
+  color: #26241f;
+}
+
+.g-pub-no {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  color: #8a8172;
+}
+
+.g-pub-figure {
+  margin: 18px auto;
+  max-width: 860px;
+  border: 1px solid #e4dccb;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.g-pub-figure img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.g-pub-figure figcaption {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #6b6355;
+  padding: 9px 12px;
+}
+
+.g-pub-credit {
+  color: #6b6355;
+}
+
+.g-pub-card {
+  background: #fff;
+  border: 1px solid #e4dccb;
+  border-radius: 12px;
+}
+
+.g-pub-card h3 {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  line-height: 1.4;
+}
+
+.g-site-nav {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+}
+
+.g-site-nav a:focus-visible,
+.g-pub a:focus-visible {
+  outline: 2px solid #5a3e1b;
+  outline-offset: 2px;
+}
+
+.g-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 560px) {
+  .g-pub-title {
+    font-size: 30px;
+  }
+  .g-pub-figure img {
+    height: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-pub {
+    scroll-behavior: auto;
+  }
+}
+
+/* Guides interiors — Explanatory Publication reading surface (scoped only).
+   Opt-in per guide via <ArticleShell> (.g-article). Paper/serif applies
+   ONLY inside .g-article. Dark tool islands (.glass-card.g-tool-island)
+   are explicitly exempted and keep navy/ivory tokens; no global body/*
+   light inversion, no doc-level overflow changes. */
+.g-article-hero {
+  background: #fbfaf6;
+  color: #26241f;
+  border: 1px solid #e4dccb;
+  border-radius: 20px;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.g-article-kicker {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7a7264;
+  margin: 0;
+}
+
+.g-article-title {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 34px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: #26241f;
+  text-wrap: balance;
+}
+
+.g-article-lede {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #4a4438;
+}
+
+.g-article-body {
+  background: #fbfaf6;
+  color: #26241f;
+  border: 1px solid #e4dccb;
+  border-radius: 20px;
+  backdrop-filter: none;
+  box-shadow: none;
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.g-article-body h2 {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Charter, Georgia, serif;
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #26241f;
+}
+
+.g-article-body a {
+  color: #5a3e1b;
+  text-decoration: underline;
+}
+
+.g-article-body a:focus-visible {
+  outline: 2px solid #5a3e1b;
+  outline-offset: 2px;
+}
+
+.g-article-body table {
+  color: #26241f;
+  font-variant-numeric: tabular-nums;
+}
+
+.g-article-body thead tr {
+  color: #6b6355;
+}
+
+.g-article-body [class*="border-white"] {
+  border-color: #e7dcc8;
+}
+
+.g-article-body [class*="bg-amber-100"] {
+  background-color: #fdf3dc;
+  border-color: #e0c98a;
+  color: #4a3a1a;
+}
+
+.g-article-faq {
+  background: #fff;
+  border: 1px solid #e4dccb;
+  border-radius: 16px;
+}
+
+.g-article-faq summary {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  color: #26241f;
+  cursor: pointer;
+}
+
+.g-article-related {
+  background: #fff;
+  border: 1px solid #e4dccb;
+  border-radius: 16px;
+  color: #26241f;
+}
+
+.g-article-related a {
+  color: #5a3e1b;
+  text-decoration: underline;
+}
+
+/* Explicit dark calculator island: keeps navy/ivory tokens inside the
+   paper reading surface. Resets the inherited paper ink/serif. */
+.g-article .g-tool-island {
+  background: linear-gradient(180deg, rgba(8, 15, 28, 0.95), rgba(4, 9, 18, 0.86));
+  border: 1px solid rgba(255, 248, 235, 0.1);
+  color: #f7f4ee;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  backdrop-filter: blur(34px);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.g-article .g-tool-island input {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  color: #f7f4ee;
+}
+
+@media (max-width: 560px) {
+  .g-article-title {
+    font-size: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-article {
+    scroll-behavior: auto;
+  }
+}
+
+/* Guides ToolIsland + LedgerTable shell (append-only rollout).
+   Guides-distinct readable publication identity: paper hairline #E4DCCB,
+   ink #26241F, sand #D9C9A8 focus on dark, #5A3E1B focus on paper.
+   Scoped to .g-tool / .g-ledger-block only; no global inversion, no
+   body/* light flip, no AdSlot/layout/consent/formula churn. */
+.g-tool {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.g-tool:focus-visible {
+  outline: 2px solid #d9c9a8;
+  outline-offset: 2px;
+}
+
+.g-ledger-block {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  max-width: 100%;
+}
+
+.g-ledger-block .g-ledger-wrap {
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.g-ledger-block .g-ledger-wrap:focus-visible {
+  outline: 2px solid #5a3e1b;
+  outline-offset: 2px;
+}
+
+@media (max-width: 560px) {
+  .g-tool {
+    padding: 16px;
+  }
+  .g-ledger-block .g-ledger-wrap th,
+  .g-ledger-block .g-ledger-wrap td {
+    padding: 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-tool,
+  .g-ledger-block {
+    scroll-behavior: auto;
+  }
+  .g-tool *,
+  .g-ledger-block * {
+    transition: none !important;
+    transform: none !important;
+  }
+}

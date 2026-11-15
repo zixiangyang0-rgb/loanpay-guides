@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Contact the guides.loanpaylogic.com editorial team for feedback, corrections, and topic requests.",
+  alternates: { canonical: "https://guides.loanpaylogic.com/contact" },
 };
 
 export default function ContactPage() {

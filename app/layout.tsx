@@ -53,11 +53,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-5">
+        <header className="g-site-nav mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-5">
           <Link href="/" className="text-lg font-semibold tracking-tight">
             LoanPay Guides
           </Link>
-          <nav className="flex flex-wrap items-center gap-4 text-sm opacity-90">
+          <nav aria-label="Site" className="flex flex-wrap items-center gap-4 text-sm opacity-90">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="hover:underline">
                 {link.label}
@@ -66,10 +66,10 @@ export default function RootLayout({
           </nav>
         </header>
         <main className="mx-auto w-full max-w-5xl px-6 pb-16">{children}</main>
-        <footer className="border-t border-white/10">
+        <footer className="g-site-nav border-t border-white/10">
           <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-6 py-8 text-sm opacity-80 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} guides.loanpaylogic.com — Educational guides only.</p>
-            <nav className="flex flex-wrap gap-4">
+            <nav aria-label="Footer" className="flex flex-wrap gap-4">
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="hover:underline">
                   {link.label}

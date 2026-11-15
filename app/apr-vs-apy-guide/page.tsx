@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import LedgerTable from "../components/LedgerTable";
+import { ArticleShell } from "../components/article-shell";
 import { Byline, GuideSchema } from "../components/schema";
 
 const guideFaqs: { question: string; answer: string }[] = [{"question": "Can APR and interest rate ever match?", "answer": "Yes — when a loan has no lender fees, the APR roughly equals the note rate. Small differences can remain from rounding and payment timing."}, {"question": "Is a 0% APR credit card really free?", "answer": "Only during the promo window and usually only for purchases or balance transfers with a transfer fee of 3–5 percent. Miss a payment and penalty terms can end the promo."}, {"question": "Why is APY higher than the stated rate?", "answer": "Because compounding lets interest earn interest. More frequent compounding raises APY slightly at the same nominal rate."}, {"question": "Which matters more for a mortgage: rate or APR?", "answer": "Both. The rate sets your payment; the APR helps you compare fee-loaded offers. Add your expected hold time to decide."}];
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="glass-panel rounded-3xl px-8 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-70">Borrowing &amp; saving · Rate basics</p>
-        <h1 className="hero-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">APR vs APY: Which Rate Matters When?</h1>
+    <ArticleShell>
+      <section className="g-article-hero px-8 py-10">
+        <p className="g-article-kicker">Borrowing &amp; saving · Rate basics</p>
+        <h1 className="g-article-title mt-3 text-3xl font-bold leading-tight sm:text-4xl">APR vs APY: Which Rate Matters When?</h1>
         <p className="mt-4 text-sm opacity-80">Updated: October 2026 · Educational guide, not financial advice.</p>
         <p className="mt-4 text-base leading-relaxed opacity-90">
           APR and APY sound alike but answer opposite questions. APR — annual percentage rate — tells you what borrowing costs over a year, including most lender fees spread across the loan. APY — annual percentage yield — tells you what savings earn over a year, including the boost from compounding. When you borrow, the higher and more complete APR is the fairer comparison. When you save, the APY is the fairer comparison. Confusing them can make an expensive loan look cheap or a modest savings account look better than it is. This guide shows the math behind each, where fees hide, and how to compare offers side by side.
@@ -26,7 +28,7 @@ export default function Page() {
       </section>
 
       <AdSlot format="in-article" slot="TODO-guides-inarticle-1" label="In-article ad 1" />
-      <article className="glass-panel rounded-3xl p-8">
+      <article className="g-article-body rounded-3xl p-8">
         <h2 className="text-2xl font-semibold">Definitions without the jargon</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           The APR spreads the loan&apos;s interest plus most upfront lender charges — origination fees, discount points, many closing costs — over the loan term, expressed as a yearly rate. A $300,000 mortgage at 6.5 percent interest with $6,000 in lender fees might show an APR near 6.7 percent. The note rate (6.5 percent) drives your monthly payment; the APR (6.7 percent) helps you compare that deal against a 6.625 percent rate with zero fees. Neither is the whole story — the APR assumes you keep the loan for the full term, so it understates fee pain if you sell or refinance early, and it excludes some third-party costs — but it remains the best single borrowing benchmark required by federal Truth in Lending disclosures.
@@ -35,7 +37,8 @@ export default function Page() {
           APY does the mirror job for deposits. If a savings account advertises 4.00 percent interest compounded monthly, the APY is slightly higher — about 4.07 percent — because each month&apos;s interest starts earning interest. The formula is APY = (1 + r/n)^n − 1, where r is the nominal rate and n the compounding periods per year. Daily compounding pushes APY a touch higher still. Banks must disclose APY under the Truth in Savings Act, so compare APYs across accounts and check minimums, caps, and teaser periods. A 5 percent APY that only applies to the first $1,000 is not the same as 4 percent on the full balance.
         </p>
         <h2 className="mt-8 text-2xl font-semibold">Side-by-side comparison</h2>
-        <div className="mt-4 overflow-x-auto">
+        <LedgerTable label="apr-vs-apy-guide ledger — Side-by-side comparison">
+        <div className="g-table-wrap mt-4 overflow-x-auto">
           <table className="w-full min-w-[560px] border-collapse text-left text-sm">
             <thead><tr className="border-b border-white/15 text-xs uppercase tracking-wide opacity-70"><th className="py-3 pr-4">Feature</th><th className="py-3 pr-4">APR (borrowing)</th><th className="py-3">APY (saving)</th></tr></thead>
             <tbody className="opacity-90">
@@ -47,6 +50,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        </LedgerTable>
         <h2 className="mt-8 text-2xl font-semibold">Worked examples: loan and savings</h2>
         <p className="mt-3 text-sm leading-relaxed opacity-80">
           Loan example: two $25,000 auto loans for 60 months. Offer A charges 7.0 percent with a $300 origination fee; Offer B charges 7.3 percent with no fee. Offer A&apos;s payment is about $495 per month plus the fee amortized, while Offer B is about $498 with no fee. The APRs come out near 7.25 percent and 7.30 percent — nearly tied — but Offer A costs slightly less if you keep the full term and slightly more if you repay in two years, because the fee has less time to spread. Always pair APR with your expected payoff horizon. Our <a className="underline" href="https://loanpaylogic.com/loan-tools/">loan tools on loanpaylogic.com</a> let you test payoff timing.
@@ -69,12 +73,12 @@ export default function Page() {
 
                 <h2 className="mt-8 text-2xl font-semibold">FAQ</h2>
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed">
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can APR and interest rate ever match?</summary><p className="mt-2 opacity-80">Yes — when a loan has no lender fees, the APR roughly equals the note rate. Small differences can remain from rounding and payment timing.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is a 0% APR credit card really free?</summary><p className="mt-2 opacity-80">Only during the promo window and usually only for purchases or balance transfers with a transfer fee of 3–5 percent. Miss a payment and penalty terms can end the promo.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Why is APY higher than the stated rate?</summary><p className="mt-2 opacity-80">Because compounding lets interest earn interest. More frequent compounding raises APY slightly at the same nominal rate.</p></details>
-          <details className="glass-card rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Which matters more for a mortgage: rate or APR?</summary><p className="mt-2 opacity-80">Both. The rate sets your payment; the APR helps you compare fee-loaded offers. Add your expected hold time to decide.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Can APR and interest rate ever match?</summary><p className="mt-2 opacity-80">Yes — when a loan has no lender fees, the APR roughly equals the note rate. Small differences can remain from rounding and payment timing.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Is a 0% APR credit card really free?</summary><p className="mt-2 opacity-80">Only during the promo window and usually only for purchases or balance transfers with a transfer fee of 3–5 percent. Miss a payment and penalty terms can end the promo.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Why is APY higher than the stated rate?</summary><p className="mt-2 opacity-80">Because compounding lets interest earn interest. More frequent compounding raises APY slightly at the same nominal rate.</p></details>
+          <details className="g-article-faq rounded-2xl p-5"><summary className="font-semibold cursor-pointer">Which matters more for a mortgage: rate or APR?</summary><p className="mt-2 opacity-80">Both. The rate sets your payment; the APR helps you compare fee-loaded offers. Add your expected hold time to decide.</p></details>
         </div>
-        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <nav aria-label="Related guides" className="g-article-related mt-8 rounded-2xl p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
@@ -91,7 +95,7 @@ export default function Page() {
               </li>
           </ul>
         </nav>
-        <p className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed opacity-90">
+        <p className="g-article-related mt-6 rounded-2xl p-5 text-sm leading-relaxed opacity-90">
           <span className="font-semibold">Official resources:</span> the <a className="underline" href="https://www.consumerfinance.gov/ask-cfpb/">CFPB interest-rate explainers</a> on APR versus interest rate math, and <a className="underline" href="https://consumer.ftc.gov/">FTC consumer advice</a> on reading credit terms before you sign.
         </p>
         <p className="mt-8 rounded-xl border border-amber-200/30 bg-amber-100/10 p-4 text-sm leading-relaxed">
@@ -101,6 +105,6 @@ export default function Page() {
 
       <AdSlot format="multiplex" slot="TODO-guides-multiplex-3" label="Multiplex ad" />
       <GuideSchema title="APR vs APY Guide: What Each Rate Really Tells You" description="APR vs APY explained in plain English: how borrowing costs and savings growth are quoted, compounding math, fees, and worked examples for loans and deposits." slug="apr-vs-apy-guide" faqs={guideFaqs} />
-    </div>
+    </ArticleShell>
   );
 }
